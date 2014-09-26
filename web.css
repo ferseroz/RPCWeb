@@ -1,0 +1,45 @@
+.main {
+	background-color: white;
+	background-repeat: repeat;
+	color : black;
+	min-height: 650px;
+
+}
+
+.header  {
+		
+	height: 100px;
+	width: 100%;
+	line-height: 4;
+}
+
+.header h2{
+	width: 300px;
+}
+.inputForm{
+	margin-top: 40px;
+	margin-right: 80px;
+	float : right;
+}
+
+.table{
+	float : left;
+	width : 40%;
+}
+
+.uploadPane{
+
+	float : right;
+}
+
+
+
+
+table, th, td{
+	color:black;
+	border-collapse: collapse;
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	padding : 15px;
+}
