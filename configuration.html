@@ -23,21 +23,47 @@
 
 				<li><input type="radio" name="job" value="all"> Node</li>
 				<!-- Node config pane -->
-				<div>
-				
+				<div class="nodeConfigPane">
+
 				</div>
 				<li><input type="radio" name="job" value="all"> IP</li>
 				<!-- IP config pane -->
+				<div class="ipConfigPane">
+					<form id="ipForm">
+						<select name="node" form="ipForm">
+							<option value="node1">Node 4</option>
+							<option value="node2">Node 3</option>
+							<option value="node3">Node 3</option>
+							<option value="node4">Node 4</option>
+						</select>
+					</form>
+
+				</div>
 				<li><input type="radio" name="job" value="all"> Run node</li>
 				<!-- Run config pane -->
+				<div class="runPane">
+					
+				</div>
 				<li><input type="radio" name="job" value="all"> Reboot, shutdown</li>
 				<!-- Reboot, shutdown config pane -->
+				<div class="rebootPane">
+					
+				</div>
 				<li><input type="radio" name="to" value="all"> User Manage</li>
 				<!-- User manage pane -->
+				<div class="userManagementPane">
+					<h2>User management</h2>
+					<table style="width:80%;">
+						<tr>
+							<td>USER</td>
+							<td>PASSWORD</td>
+							<td>Edit</td>
+							<td class width="5%">Remove</td>
+						</tr>
+					</table>
+				</div>
 			</ul>
 		</div>
-
-	
-
-	</body>
+	</div>
+</body>
 </head>
