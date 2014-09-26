@@ -2,23 +2,25 @@
 <html>
 <head>
 	<title>THIS IS FUCKING AWeSOMe</title>
-	<link rel="stylesheet" type="text/css" href="web.css">
+	<script src="js/script.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/web.css">
 
 </head>
 <body>
 	<div class = "main"style="clear:both" >
 
-			<form class = "inputForm">
+		<form class = "loginForm">
 			User name: <input type="text" name="firstname">
-			Password <input type="password" name="password">
-			</form>
+			Password: <input type="password" name="password">
+			<input type="submit" value="Login">
+		</form>
 		<div class="header">
 			<h2>Cluster For Education</h2>		
 			
 		</div>
 
-		<div>
-			<table class = "table node" style="width:50%">
+		<div class = "table">
+			<table>
 				<tr>
 					<th>NODE NAME</th>
 					<th>CPU</th>
@@ -82,8 +84,25 @@
 					<td>N/A</td>
 					<td>N/A</td>
 				</tr>
-
 			</table>
+			
+
+		</div>
+		<div class ="uploadPane">
+			<form action="demo_form.asp">
+				Select a file: <input type="file" name="file"><br>
+				<input type="radio" name="to" value="all"> All<br>
+				<input type="radio" name="to" value="spec"> Specify nodes(s)<br>
+				<input type="checkbox" name="node" value="1"> Node 1<br>
+				<input type="checkbox" name="node" value="2"> Node 2<br>
+				<input type="checkbox" name="node" value="3"> Node 3<br>
+				<input type="checkbox" name="node" value="4"> Node 4<br>
+				<input type="checkbox" name="node" value="5"> Node 5<br>
+				<input type="checkbox" name="node" value="6"> Node 6<br>
+				<input type="checkbox" name="node" value="7"> Node 7<br>
+				<input type="checkbox" name="node" value="8"> Node 8<br>
+				<input type="submit" value="Upload">
+			</form>
 		</div>
 	</div>
 </body>
