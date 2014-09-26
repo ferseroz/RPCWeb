@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>THIS IS FUCKING AWeSOMe</title>
+	<title>Raspberry Pis Cluster</title>
 	<script src="js/script.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/web.css">
 
@@ -91,20 +91,20 @@
 		<div class ="uploadPane">
 			<form action="demo_form.asp">
 				Select a file: <input type="file" name="file"><br>
-				<dl>
-					<dt><input type="radio" name="to" value="all"> All</dt>
-					<dd> Upload to all node.</dd>
+				<ul style="list-style-type:none">
+					<li><input type="radio" name="to" value="all"> All Nodes</li>
 					<br>
-					<dt><input type="radio" name="to" value="spec"> Specify nodes(s)<dt>
-					<dd> Specify node(s) to upload to.
-					<dd><input type="checkbox" name="node" value="1"> Node 1</dd>
-					<dd><input type="checkbox" name="node" value="2"> Node 2</dd>
-					<dd><input type="checkbox" name="node" value="3"> Node 3</dd>
-					<dd><input type="checkbox" name="node" value="4"> Node 4</dd>
-					<dd><input type="checkbox" name="node" value="5"> Node 5</dd>
-					<dd><input type="checkbox" name="node" value="6"> Node 6</dd>
-					<dd><input type="checkbox" name="node" value="7"> Node 7</dd>
-					<dd><input type="checkbox" name="node" value="8"> Node 8</dd>
+					<li><input type="radio" name="to" value="spec"> Specify nodes(s)<li>
+					<ul style="list-style-type:none">
+						<li><input type="checkbox" name="node" value="1"> Node 1</li>
+						<li><input type="checkbox" name="node" value="2"> Node 2</li>
+						<li><input type="checkbox" name="node" value="3"> Node 3</li>
+						<li><input type="checkbox" name="node" value="4"> Node 4</li>
+						<li><input type="checkbox" name="node" value="5"> Node 5</li>
+						<li><input type="checkbox" name="node" value="6"> Node 6</li>
+						<li><input type="checkbox" name="node" value="7"> Node 7</li>
+						<li><input type="checkbox" name="node" value="8"> Node 8</li>
+					</ul>
 				</dl>				
 				<input type="submit" value="Upload">
 			</form>
