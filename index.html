@@ -9,9 +9,9 @@
 <body>
 	<div class = "main"style="clear:both" >
 
-		<form class = "loginForm">
-			User name: <input type="text" name="firstname">
-			Password: <input type="password" name="password">
+		<form class = "loginForm" action="checklogin.php" method="POST">
+			User name: <input type="text" name="username" id="username">
+			Password: <input type="password" name="password" id="password">
 			<input type="submit" value="Login">
 		</form>
 		<div class="header">
@@ -89,19 +89,19 @@
 
 		</div>
 		<div class ="uploadPane">
-			<form action="demo_form.asp">
-				Select a file: <input type="file" name="file"><br>
+			<form action="uploadfile.php" method="POST" enctype="multipart/form-data">
+				Select a file: <input type="file" name="file" id="file"><br>
 				<input type="radio" name="to" value="all"> All<br>
 				<input type="radio" name="to" value="spec"> Specify nodes(s)<br>
-				<input type="checkbox" name="node" value="1"> Node 1<br>
-				<input type="checkbox" name="node" value="2"> Node 2<br>
-				<input type="checkbox" name="node" value="3"> Node 3<br>
-				<input type="checkbox" name="node" value="4"> Node 4<br>
-				<input type="checkbox" name="node" value="5"> Node 5<br>
-				<input type="checkbox" name="node" value="6"> Node 6<br>
-				<input type="checkbox" name="node" value="7"> Node 7<br>
-				<input type="checkbox" name="node" value="8"> Node 8<br>
-				<input type="submit" value="Upload">
+				<input type="checkbox" name="node[]" value="192.168.1.9"> Node 1<br>
+				<input type="checkbox" name="node[]" value="192.168.1.2"> Node 2<br>
+				<input type="checkbox" name="node[]" value="192.168.1.3"> Node 3<br>
+				<input type="checkbox" name="node[]" value="192.168.1.4"> Node 4<br>
+				<input type="checkbox" name="node[]" value="192.168.1.5"> Node 5<br>
+				<input type="checkbox" name="node[]" value="192.168.1.6"> Node 6<br>
+				<input type="checkbox" name="node[]" value="192.168.1.7"> Node 7<br>
+				<input type="checkbox" name="node[]" value="192.168.1.8"> Node 8<br>
+				<input type="submit" value="upload" id="upload" name="upload">
 			</form>
 		</div>
 	</div>
