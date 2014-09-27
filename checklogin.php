@@ -11,14 +11,9 @@
                 $row = mysql_fetch_array($query);          
                 $_SESSION['username']=$row['username'];
                 $_SESSION['class']=$row['class'];
-                //$_SESSION['password']=$row['Password'];
-                //$_SESSION['fname']=$row['Firstname'];
-                //$_SESSION['lname']=$row['Lastname'];
-                //$_SESSION['class']=$row['Class'];
-                //setcookie('email', $_POST['email'], time()+60*60*24*365);
-                //setcookie('password', $_POST['password'], time()+60*60*24*365);
+                setcookie('username', $_POST['username'], time()+60*60*24*365);
+                setcookie('password', $_POST['password'], time()+60*60*24*365);
                 header('Location: index.html');
-		//echo "Done!";
             }
         else 
             {
