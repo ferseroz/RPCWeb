@@ -1,3 +1,7 @@
+<?php
+include('sshconfig.php');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,67 +30,18 @@
 			<table>
 				<tr>
 					<th>NODE NAME</th>
+					<th>IP Address</th>
 					<th>CPU</th>
 					<th>WORK</th>
 					<th>Detail</th>
 					<th>SSH</th>
 				</tr>
-				<tr>
-					<td>NODE1</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE2</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE3</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE4</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE5</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE6</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE7</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE8</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
+				
+					<?php
+					include('maintable.php');
+					?>
+
+			
 			</table>
 
 
