@@ -1,35 +1,36 @@
 .main {
-	background-color: white;
+	background-color: #b2d0cc;
 	background-repeat: repeat;
 	color : black;
 	min-height: 650px;
-	margin-top: 80px;
 
 }
 
 .configButton{
 	float:right;
-	
-
+    margin-top: 32px;
 }
 
 .headPane{
-	margin-left: 40px;
+	background-color: #5a7e90;
 }
 
 
 .loginForm{
 	float : right;
+	margin-top: 30px;
 }
 
 .statusTable{
 	float : left;
 	width : 40%;
+	margin-top: 20px;
+	margin-left: 80px;
 }
 
 .uploadPane{
-	margin-right: 50px;
-	margin-top: 50px;
+	margin-right: 70px;
+	margin-top: 40px;
 	float : right;
 }
 
@@ -41,7 +42,6 @@
 .frame{
 	float : right;
 }
-
 
 
 table, th, td{
