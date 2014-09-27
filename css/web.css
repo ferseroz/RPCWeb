@@ -1,5 +1,5 @@
 .main {
-	background-color: #b2d0cc;
+	background-color: white;
 	background-repeat: repeat;
 	color : black;
 	min-height: 650px;
@@ -9,6 +9,7 @@
 .configButton{
 	float:right;
     margin-top: 32px;
+    margin-right: 20px;
 }
 
 .headPane{
@@ -19,6 +20,7 @@
 .loginForm{
 	float : right;
 	margin-top: 30px;
+	margin-right: 20px;
 }
 
 .statusTable{

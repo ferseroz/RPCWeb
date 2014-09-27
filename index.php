@@ -22,11 +22,12 @@ include('sshconfig.php');
 				Password: <input type="password" name="password" id="password">
 				<input type="submit" value="Login">
 				<br>
-				<a style="float:right;"href="">Request for account</a>
+				<a style="float:right; color:white"href="">Request an account</a>
 			</form>
 			
 			<div class="ui ribbon label">Raspberry Pi CLuster</div>
-			<h2 style="color:white; margin-left:80px; font-size:30px"><i class="laptop big icon"></i><ins>Cluster For Education</ins> </h2>
+			<h2 style="color:white; margin-left:80px; font-size:30px"><i class="laptop big icon"></i><ins>Cluster For Education</ins></h2>
+			<h3 style="margin-left:80px;margin-top: -30px; padding-bottom:20px; color:#35332e;">An appropriate cluster for study many types of knowledge.</h3>
 		</div>
 
 
