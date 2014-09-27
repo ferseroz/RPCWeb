@@ -43,74 +43,13 @@ include('sshconfig.php');
 					<th>Detail</th>
 					<th>SSH</th>
 				</tr>
-<<<<<<< HEAD:index.php
 				
-					<?php
-					include('maintable.php');
-					?>
-
-			
-=======
 				</thead>
 				<tbody>
-				<tr>
-					<td>NODE1</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE2</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE3</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE4</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE5</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE6</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE7</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE8</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
+				<?php
+					include('maintable.php');
+					?>
 				</tbody>
->>>>>>> FETCH_HEAD:index.html
 			</table>
 
 
