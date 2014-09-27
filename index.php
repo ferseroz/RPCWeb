@@ -7,27 +7,33 @@ include('sshconfig.php');
 <head>
 	<title>Raspberry Pis Cluster</title>
 	<script src="js/script.js"></script>
+	<script src="packaged/javascript/semantic.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/web.css">
-
+	<link rel="stylesheet" type="text/css" href="packaged/css/semantic.css">
 </head>
 <body>
 
 	<div class = "main"style="clear:both" >
 
 		<div class = "headPane">
-		<button class="configButton" type="button">Configuration</button>
+			<button class="configButton" type="button">Configuration</button>
 			<form class = "loginForm" action="checklogin.php" method="POST">
-				User name: <input type="text" name="username" id="username">
+				Username: <input type="text" name="username" id="username">
 				Password: <input type="password" name="password" id="password">
 				<input type="submit" value="Login">
 				<br>
-				<a style="float:right;"href="">request for account</a>
+				<a style="float:right;"href="">Request for account</a>
 			</form>
-		<h2>Cluster For Education</h2>	
+			
+			<div class="ui ribbon label">Raspberry Pi CLuster</div>
+			<h2 style="color:white; margin-left:80px; font-size:30px"><i class="laptop big icon"></i><ins>Cluster For Education</ins> </h2>
 		</div>
 
+
 		<div class = "statusTable">
-			<table>
+			<h3>Status</h3>
+			<table class="ui inverted table segment">
+				<thead>
 				<tr>
 					<th>NODE NAME</th>
 					<th>IP Address</th>
@@ -36,23 +42,87 @@ include('sshconfig.php');
 					<th>Detail</th>
 					<th>SSH</th>
 				</tr>
+<<<<<<< HEAD:index.php
 				
 					<?php
 					include('maintable.php');
 					?>
 
 			
+=======
+				</thead>
+				<tbody>
+				<tr>
+					<td>NODE1</td>
+					<td>N/A</td>
+					<td>N/A</td>
+					<td>N/A</td>
+					<td>N/A</td>
+				</tr>
+				<tr>
+					<td>NODE2</td>
+					<td>N/A</td>
+					<td>N/A</td>
+					<td>N/A</td>
+					<td>N/A</td>
+				</tr>
+				<tr>
+					<td>NODE3</td>
+					<td>N/A</td>
+					<td>N/A</td>
+					<td>N/A</td>
+					<td>N/A</td>
+				</tr>
+				<tr>
+					<td>NODE4</td>
+					<td>N/A</td>
+					<td>N/A</td>
+					<td>N/A</td>
+					<td>N/A</td>
+				</tr>
+				<tr>
+					<td>NODE5</td>
+					<td>N/A</td>
+					<td>N/A</td>
+					<td>N/A</td>
+					<td>N/A</td>
+				</tr>
+				<tr>
+					<td>NODE6</td>
+					<td>N/A</td>
+					<td>N/A</td>
+					<td>N/A</td>
+					<td>N/A</td>
+				</tr>
+				<tr>
+					<td>NODE7</td>
+					<td>N/A</td>
+					<td>N/A</td>
+					<td>N/A</td>
+					<td>N/A</td>
+				</tr>
+				<tr>
+					<td>NODE8</td>
+					<td>N/A</td>
+					<td>N/A</td>
+					<td>N/A</td>
+					<td>N/A</td>
+				</tr>
+				</tbody>
+>>>>>>> FETCH_HEAD:index.html
 			</table>
 
 
 		</div>
 		<div class ="uploadPane">
+		<div class="ui secondary inverted segment">
+			<p><ins>Upload File</ins> <i class="file outline icon"></i></p>
 			<form action="uploadfile.php" method="POST" enctype="multipart/form-data">
 				<ul style="list-style-type:none">
 					Select a file: <input type="file" name="file" id="file">
 					<li><input type="radio" name="to" value="all"> All</li>
 					<li><input type="radio" name="to" value="spec"> Specify nodes(s)</li>
-					<ul style="list-style-type:none">
+					<ul class ="uploadNodeList"style="list-style-type:none">
 						<li><input type="checkbox" name="node[]" value="192.168.1.9"> Node 1</li>
 						<li><input type="checkbox" name="node[]" value="192.168.1.2"> Node 2</li>
 						<li><input type="checkbox" name="node[]" value="192.168.1.3"> Node 3</li>
@@ -65,6 +135,7 @@ include('sshconfig.php');
 					</ul>
 				</ul>
 			</form>
+			</div>
 		</div>
 	</div>
 </body>
