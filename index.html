@@ -1,130 +1,114 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Raspberry Pis Cluster</title>
-	<script src="js/script.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/web.css">
+<title>Raspberry Pis Cluster</title>
+<script src="js/script.js"></script>
+<link rel="stylesheet" type="text/css" href="css/web.css">
 
 </head>
 <body>
-	<div class = "main"style="clear:both" >
+<div class = "main"style="clear:both" >
 
-		<form class = "loginForm" action="checklogin.php" method="POST">
-			User name: <input type="text" name="username" id="username">
-			Password: <input type="password" name="password" id="password">
-			<input type="submit" value="Login">
-		</form>
-		<div class="header">
-			<h2>Cluster For Education</h2>		
-			
-		</div>
-
-		<div class = "table">
-			<table>
-				<tr>
-					<th>NODE NAME</th>
-					<th>CPU</th>
-					<th>WORK</th>
-					<th>Detail</th>
-					<th>SSH</th>
-				</tr>
-				<tr>
-					<td>NODE1</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE2</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE3</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE4</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE5</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE6</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE7</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-				<tr>
-					<td>NODE8</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-					<td>N/A</td>
-				</tr>
-			</table>
-			
-
-		</div>
-		<div class ="uploadPane">
-<<<<<<< HEAD
-			<form action="uploadfile.php" method="POST" enctype="multipart/form-data">
-				Select a file: <input type="file" name="file" id="file"><br>
-				<input type="radio" name="to" value="all"> All<br>
-				<input type="radio" name="to" value="spec"> Specify nodes(s)<br>
-				<input type="checkbox" name="node[]" value="192.168.1.9"> Node 1<br>
-				<input type="checkbox" name="node[]" value="192.168.1.2"> Node 2<br>
-				<input type="checkbox" name="node[]" value="192.168.1.3"> Node 3<br>
-				<input type="checkbox" name="node[]" value="192.168.1.4"> Node 4<br>
-				<input type="checkbox" name="node[]" value="192.168.1.5"> Node 5<br>
-				<input type="checkbox" name="node[]" value="192.168.1.6"> Node 6<br>
-				<input type="checkbox" name="node[]" value="192.168.1.7"> Node 7<br>
-				<input type="checkbox" name="node[]" value="192.168.1.8"> Node 8<br>
-				<input type="submit" value="upload" id="upload" name="upload">
-=======
-			<form action="demo_form.asp">
-				Select a file: <input type="file" name="file"><br>
-				<ul style="list-style-type:none">
-					<li><input type="radio" name="to" value="all"> All Nodes</li>
-					<br>
-					<li><input type="radio" name="to" value="spec"> Specify nodes(s)<li>
-					<ul style="list-style-type:none">
-						<li><input type="checkbox" name="node" value="1"> Node 1</li>
-						<li><input type="checkbox" name="node" value="2"> Node 2</li>
-						<li><input type="checkbox" name="node" value="3"> Node 3</li>
-						<li><input type="checkbox" name="node" value="4"> Node 4</li>
-						<li><input type="checkbox" name="node" value="5"> Node 5</li>
-						<li><input type="checkbox" name="node" value="6"> Node 6</li>
-						<li><input type="checkbox" name="node" value="7"> Node 7</li>
-						<li><input type="checkbox" name="node" value="8"> Node 8</li>
-					</ul>
-				</dl>				
-				<input type="submit" value="Upload">
->>>>>>> FETCH_HEAD
-			</form>
-		</div>
+	<form class = "loginForm" action="checklogin.php" method="POST">
+		User name: <input type="text" name="username" id="username">
+		Password: <input type="password" name="password" id="password">
+		<input type="submit" value="Login">
+	</form>
+	
+	<div class="header">
+		<h2>Cluster For Education</h2>		
+		
 	</div>
+
+	<div class = "statusTable">
+		<table>
+			<tr>
+				<th>NODE NAME</th>
+				<th>CPU</th>
+				<th>WORK</th>
+				<th>Detail</th>
+				<th>SSH</th>
+			</tr>
+			<tr>
+				<td>NODE1</td>
+				<td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+			</tr>
+			<tr>
+				<td>NODE2</td>
+				<td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+			</tr>
+			<tr>
+				<td>NODE3</td>
+				<td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+			</tr>
+			<tr>
+				<td>NODE4</td>
+				<td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+			</tr>
+			<tr>
+				<td>NODE5</td>
+				<td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+			</tr>
+			<tr>
+				<td>NODE6</td>
+				<td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+			</tr>
+			<tr>
+				<td>NODE7</td>
+				<td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+			</tr>
+			<tr>
+				<td>NODE8</td>
+				<td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+			</tr>
+		</table>
+		
+
+	</div>
+	<div class ="uploadPane">
+		<form action="uploadfile.php" method="POST" enctype="multipart/form-data">
+			<ul style="list-style-type:none">
+				Select a file: <input type="file" name="file" id="file">
+				<li><input type="radio" name="to" value="all"> All</li>
+				<li><input type="radio" name="to" value="spec"> Specify nodes(s)</li>
+				<ul style="list-style-type:none">
+					<li><input type="checkbox" name="node[]" value="192.168.1.9"> Node 1</li>
+					<li><input type="checkbox" name="node[]" value="192.168.1.2"> Node 2</li>
+					<li><input type="checkbox" name="node[]" value="192.168.1.3"> Node 3</li>
+					<li><input type="checkbox" name="node[]" value="192.168.1.4"> Node 4</li>
+					<li><input type="checkbox" name="node[]" value="192.168.1.5"> Node 5</li>
+					<li><input type="checkbox" name="node[]" value="192.168.1.6"> Node 6</li>
+					<li><input type="checkbox" name="node[]" value="192.168.1.7"> Node 7</li>
+					<li><input type="checkbox" name="node[]" value="192.168.1.8"> Node 8</li>
+					<input type="submit" value="Upload" id="upload" name="upload">
+				</ul>
+			</ul>
+		</form>
+	</div>
+</div>
 </body>
 </html>

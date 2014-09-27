@@ -22,7 +22,7 @@
 	float : right;
 }
 
-.table{
+.statusTable{
 	float : left;
 	width : 40%;
 }
@@ -32,6 +32,14 @@
 	float : right;
 }
 
+.userManagementPane{
+	margin-left: 40px;
+	width: 80%;
+}
+
+.frame{
+	float : right;
+}
 
 
 

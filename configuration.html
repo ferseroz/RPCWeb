@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Raspberry Pis Cluster</title>
-	<script src="script.js"></script>
+	<script src="js/script.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/web.css">
 </head>
 <body>
@@ -29,13 +29,19 @@
 				<li><input type="radio" name="job" value="all"> IP</li>
 				<!-- IP config pane -->
 				<div class="ipConfigPane">
-					<form id="ipForm">
+					<form id="ipForm" style="margin-left:40px;">
 						<select name="node" form="ipForm">
-							<option value="node1">Node 4</option>
-							<option value="node2">Node 3</option>
+							<option value="node1">Node 1</option>
+							<option value="node2">Node 2</option>
 							<option value="node3">Node 3</option>
 							<option value="node4">Node 4</option>
 						</select>
+						<br>
+						IP : <input type="text" name="ip"><br>
+						Subnet Mask : <input type="text" name="subnet"><br>
+						Router : <input type="text" name="router"><br>
+						DNS : <input type="text" name="dns"><br>
+
 					</form>
 
 				</div>
@@ -53,7 +59,7 @@
 				<!-- User manage pane -->
 				<div class="userManagementPane">
 					<h2>User management</h2>
-					<table style="width:80%;">
+					<table>
 						<tr>
 							<td>USER</td>
 							<td>PASSWORD</td>
@@ -61,6 +67,12 @@
 							<td class width="5%">Remove</td>
 						</tr>
 					</table>
+
+					<form style="float:right;margin-top:40px;">
+						Username : <input type="text" name="firstname">
+						Password : <input type="text" name="lastname">
+						<input type="submit" value="Create user">
+					</form>
 				</div>
 			</ul>
 		</div>
