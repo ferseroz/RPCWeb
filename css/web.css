@@ -1,10 +1,9 @@
 .main {
-	background-color: #B0C4DE;
+
 	background-color: white;
 	background-repeat: repeat;
 	color : black;
 	min-height: 650px;
-	margin-top: 80px;
 
 }
 
@@ -15,7 +14,7 @@
 }
 
 .headPane{
-	margin-left: 40px;
+	background-color: #5a7e90;
 }
 
 
@@ -28,12 +27,13 @@
 .statusTable{
 	float : left;
 	width : 40%;
-	margin-right: 40px;
+	margin-top: 20px;
+	margin-left: 80px;
 }
 
 .uploadPane{
-	margin-right: 50px;
-	margin-top: 50px;
+	margin-right: 70px;
+	margin-top: 40px;
 	float : right;
 }
 
@@ -46,7 +46,8 @@
 	float : right;
 }
 
-table, thead, th, td{
+
+table, th, td{
 	color:black;
 	border-collapse: collapse;
 	border: 1px solid black;
