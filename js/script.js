@@ -1,5 +1,5 @@
-$(document).ready(function() {
-	$("configButon").click(function(){
-    $(this).hide();
+$(document).ready(function(){
+  $(".configButton").click(function(){
+    $(".configButton").hide();
   });
-}
+});
