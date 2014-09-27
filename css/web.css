@@ -56,12 +56,3 @@ table, th, td{
 	text-align: center;
 	padding : 15px;
 }
-
-.ui.tertiary.inverted.segment{
-	float : left;
-	margin-left: 70px;
-	margin-right: 640px;
-	margin-top: 80px;
-	padding-bottom: 40px;
-}
-
