@@ -2,13 +2,14 @@
 <html>
 <head>
 	<title>Raspberry Pis Cluster</title>
+	<script src="js/jquery-2.1.1.min.js"></script>
 	<script src="js/script.js"></script>
 	<script src="packaged/javascript/semantic.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="css/web.css">
 	<link rel="stylesheet" type="text/css" href="packaged/css/semantic.css">
 </head>
 <body>
-
 	<div class = "main"style="clear:both" >
 
 		<form class = "loginForm">
@@ -25,7 +26,7 @@
 
 				<li><input type="radio" name="job" value="all"> Node</li>
 				<!-- Node config pane -->
-				<div class="nodeConfigPane">
+				<div class="nodeConfig Pane">
 					<form id="nodeForm" style="margin-left:40px;">
 					<!-- select how many node will be head node -->
 						How many head node(s)?
@@ -59,7 +60,7 @@
 				</div>
 				<li><input type="radio" name="job" value="all"> IP</li>
 				<!-- IP config pane -->
-				<div class="ipConfigPane">
+				<div class="ipConfig Pane">
 					<form id="ipForm" style="margin-left:40px;">
 					Select node :
 						<select name="node" form="ipForm">
@@ -79,17 +80,17 @@
 				</div>
 				<li><input type="radio" name="job" value="all"> Run node</li>
 				<!-- Run config pane -->
-				<div class="runPane">
+				<div class="run Pane">
 					
 				</div>
 				<li><input type="radio" name="job" value="all"> Reboot, shutdown</li>
 				<!-- Reboot, shutdown config pane -->
-				<div class="rebootPane">
+				<div class="reboot Pane">
 					
 				</div>
 				<li><input type="radio" name="to" value="all"> User Manage</li>
 				<!-- User manage pane -->
-				<div class="userManagementPane">
+				<div class="userManagement Pane">
 					<h2>User management</h2>
 					<table>
 						<tr>
@@ -99,12 +100,6 @@
 							<td class width="5%">Remove</td>
 						</tr>
 					</table>
-
-					<form style="float:right;margin-top:40px;">
-						Username : <input type="text" name="firstname">
-						Password : <input type="text" name="lastname">
-						<input type="submit" value="Create user">
-					</form>
 				</div>
 			</ul>
 		</div>

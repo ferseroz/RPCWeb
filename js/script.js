@@ -1,5 +1,10 @@
 $(document).ready(function(){
-  $(".configButton").click(function(){
-    $(".configButton").hide();
+
+	// Hide all panes
+  $(".Pane").hide();
+
   });
-});
+
+function getPane(){
+
+}
