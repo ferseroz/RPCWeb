@@ -1,5 +1,9 @@
 .main {
+<<<<<<< HEAD
 	background-color: #B0C4DE;
+=======
+	background-color: white;
+>>>>>>> origin/master
 	background-repeat: repeat;
 	color : black;
 	min-height: 650px;
@@ -9,8 +13,13 @@
 
 .configButton{
 	float:right;
+<<<<<<< HEAD
 	
 
+=======
+    margin-top: 32px;
+    margin-right: 20px;
+>>>>>>> origin/master
 }
 
 .headPane{
@@ -20,6 +29,11 @@
 
 .loginForm{
 	float : right;
+<<<<<<< HEAD
+=======
+	margin-top: 30px;
+	margin-right: 20px;
+>>>>>>> origin/master
 }
 
 .statusTable{
