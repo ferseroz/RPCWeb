@@ -3,22 +3,22 @@
 	background-repeat: repeat;
 	color : black;
 	min-height: 650px;
+	margin-top: 80px;
 
 }
 
-.header  {
-		
-	height: 100px;
-	width: 100%;
-	line-height: 4;
+.configButton{
+	float:right;
+	
+
 }
 
-.header h2{
-	width: 300px;
+.headPane{
+	margin-left: 40px;
 }
+
+
 .loginForm{
-	margin-top: 40px;
-	margin-right: 80px;
 	float : right;
 }
 
@@ -28,7 +28,8 @@
 }
 
 .uploadPane{
-
+	margin-right: 50px;
+	margin-top: 50px;
 	float : right;
 }
 
