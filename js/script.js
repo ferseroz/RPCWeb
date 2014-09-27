@@ -1,3 +1,7 @@
-$(document).ready(function() {
+//$(document).ready(function() {
 
-	}
+//}
+
+function showNode(){
+	  document.getElementsByClassName('uploadNodeList').
+}
