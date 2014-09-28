@@ -34,7 +34,7 @@
 
 .uploadPane{
 	margin-right: 80px;
-	margin-top: 30px;
+	margin-top: 55px;
 	float : right;
 }
 
@@ -56,3 +56,15 @@ table, th, td{
 	text-align: center;
 	padding : 15px;
 }
+
+.requestPane{
+	float:center;
+	margin-top: 70px;
+	margin-left: 20px;
+	
+}
+
+.ui.section.divider{
+padding-top: -70px;
+}
+
