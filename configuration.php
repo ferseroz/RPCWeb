@@ -81,10 +81,10 @@
 					<form id="ipForm" style="margin-left:10px;">
 						Select node:
 						<select name="node" form="ipForm">
-							<option value="node1">Node 1</option>
-							<option value="node2">Node 2</option>
-							<option value="node3">Node 3</option>
-							<option value="node4">Node 4</option>
+							<option value="192.168.1.9">Node 1</option>
+							<option value="192.168.1.2">Node 2</option>
+							<option value="192.168.1.3">Node 3</option>
+							<option value="192.168.1.4">Node 4</option>
 						</select>
 						<br>
 						IP: <input style="width:190px" type="text" name="ip"><br>
