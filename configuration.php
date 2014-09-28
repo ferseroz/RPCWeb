@@ -130,6 +130,16 @@
 							<td>Reboot</td>
 							<td>Halt</td>
 						</tr>
+						<?php
+						include('getlist.php');
+						for($i = 0 ; $i < sizeof($nodename) ; $i++){
+							echo "<tr>";
+							echo "<td>" . $nodename[$i] . "</td>";
+							echo "<td><a href='reboot.php?ip=" . urlencode($nodeip[$i]) . "'>Reboot</td>";
+							echo "<td><a href='halt.php?ip=" . urlencode($nodeip[$i]) . "'>Shutdown</td>";
+							echo "</td>";
+						}
+						?>
 					</table>
 				</div>
 

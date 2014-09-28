@@ -10,7 +10,7 @@ for($i = 2 ; $i < 21 ; $i++) {
 	$output = array();
 	$result = null;
 	
-	exec("ping -c 1 -s 8 -W 50 " . $host, $output, $result);
+	exec("ping -c 1 -s 8 -W 200 " . $host, $output, $result);
 
 	if($result == 0) {
 		$ssh = new Net_SSH2($host);
