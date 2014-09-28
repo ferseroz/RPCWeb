@@ -1,8 +1,3 @@
-<?php
-include('sshconfig.php');
-?>
-
-<!DOCTYPE html>
 <html>
 <head>
 	<title>Raspberry Pis Cluster</title>
