@@ -39,15 +39,20 @@
 					<form id="nodeForm" style="margin-left:30px;">
 						<!-- select how many node will be head node -->
 						How many head node(s)?
-						<select name="node" form="nodeForm">
-							<option value="node1">Node 1</option>
-							<option value="node2">Node 2</option>
-							<option value="node3">Node 3</option>
-							<option value="node4">Node 4</option>
+						<select name="headNode" form="nodeForm">
+							<option value="node1">1 Node</option>
+							<option value="node2">2 Nodes</option>
+							<option value="node3">3 Nodes</option>
+							<option value="node4">4 Nodes</option>
+							<option value="node4">5 Nodes</option>
+							<option value="node4">6 Nodes</option>
+							<option value="node4">7 Nodes</option>
+							<option value="node4">8 Nodes</option>
 						</select>
 						<br>
 						<!-- select head here -->
-						<div class ="ui stackable grid">
+						<div class ="ui stackable grid nodeConfig">
+						<!-- gen start here -->
 						<div class="ui three wide column">
 						<div class="ui segment clustering"  style="padding-left:30px">
 							Select head node :<select name="node" form="nodeForm">
@@ -55,21 +60,26 @@
 							<option value="node2">Node 2</option>
 							<option value="node3">Node 3</option>
 							<option value="node4">Node 4</option>
+							<option value="node4">Node 5</option>
+							<option value="node4">Node 6</option>
+							<option value="node4">Node 7</option>
+							<option value="node4">Node 8</option>
 						</select><br>
 						<!-- check for slave(s) -->
 						<ul style="list-style-type:none">
-							<li><input type="checkbox" name="node[]" value="192.168.1.9"> Node 1</li>
-							<li><input type="checkbox" name="node[]" value="192.168.1.2"> Node 2</li>
-							<li><input type="checkbox" name="node[]" value="192.168.1.3"> Node 3</li>
-							<li><input type="checkbox" name="node[]" value="192.168.1.4"> Node 4</li>
-							<li><input type="checkbox" name="node[]" value="192.168.1.5"> Node 5</li>
-							<li><input type="checkbox" name="node[]" value="192.168.1.6"> Node 6</li>
-							<li><input type="checkbox" name="node[]" value="192.168.1.7"> Node 7</li>
-							<li><input type="checkbox" name="node[]" value="192.168.1.8"> Node 8</li>
+							<li><input type="checkbox" name="nodecb" value="node1"> Node 1</li>
+							<li><input type="checkbox" name="nodecb" value="node2"> Node 2</li>
+							<li><input type="checkbox" name="nodecb" value="node3"> Node 3</li>
+							<li><input type="checkbox" name="nodecb" value="node4"> Node 4</li>
+							<li><input type="checkbox" name="nodecb" value="node5"> Node 5</li>
+							<li><input type="checkbox" name="nodecb" value="node6"> Node 6</li>
+							<li><input type="checkbox" name="nodecb" value="node7"> Node 7</li>
+							<li><input type="checkbox" name="nodecb" value="node8"> Node 8</li>
 							<input type="submit" value="Create" id="create" name="create">
 						</ul>
 						</div>
 						</div>
+						<!-- gen stop here -->
 						</div>
 					</form>
 
@@ -78,7 +88,7 @@
 			<!-- IP config pane -->
 			<div class="ipConfig Pane">
 				<div class="ui segment ip" style="margin-left:25px; margin-top: 10px; margin-right: 1000px; margin-bottom:5px">
-					<form id="ipForm" style="margin-left:10px;">
+					<form id="ipForm" style="">
 						Select node:
 						<select name="node" form="ipForm">
 							<option value="node1">Node 1</option>
@@ -87,10 +97,10 @@
 							<option value="node4">Node 4</option>
 						</select>
 						<br>
-						IP: <input style="width:190px" type="text" name="ip"><br>
-						Subnet Mask : <input style="width:117px" type="text" name="subnet"><br>
-						Router: <input style="width:161px" type="text" name="router"><br>
-						DNS: <input style="width:173px" type="text" name="dns"><br>
+						IP: <input style="width:100%" type="text" name="ip"><br>
+						Subnet Mask : <input style="width:100%" type="text" name="subnet"><br>
+						Router: <input style="width:100%" type="text" name="router"><br>
+						DNS: <input style="width:100%" type="text" name="dns"><br>
 
 					</form>
 				</div>
