@@ -59,7 +59,7 @@
 						<li><input type="radio" name="to" value="spec" class = "specNode"> Specify nodes(s)</li>
 						<ul style="list-style-type:none">
 							
-							<!-Generate Selection-!>
+							<!--Generate Selection-->
 							<?php
 							include('getlist.php');
 							for($i = 0 ; $i < sizeof($nodeip) ; $i++){
