@@ -8,6 +8,6 @@
 		exec("ping -c 1 -s 8 -W 50 " . $host, $output, $ping);
 
 		echo "";
-		}
+		
 	}
 ?>
