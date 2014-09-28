@@ -18,6 +18,8 @@ $(document).ready(function(){
 
 
 	$("select[name='numberHead']").change(function(){
+
+
 		$('.ui.three.wide.column.nodeConfig').remove();
 		var i = 0;
 		while(i < $(this).val()){
@@ -28,27 +30,39 @@ $(document).ready(function(){
 		$("select[name='nodeHead']").click(function(){
 
 			previous = this.value;
-				
+
 		}).change(function(){
 
 
 			$("select[name='nodeHead'] option[value="+previous+"]").removeAttr("disabled","disabled");
+			$("input[value="+previous+"]")
+						.attr("disabled",false);
+
 			if($(this).val() !== "0"){
 				//$('option:selected').attr("disabled","disabled");
 				var se = $(this).val();
 				//$("select option:not(:selected)").removeAttr("disabled","disabled");
 				$("select[name='nodeHead'] option[value="+se+"]").attr("disabled","disabled");
-				
+				$("input[value="+se+"]")
+						.attr("disabled",true);
 			}
 		});
 
+		$("input[name='nodecb']").change(function(){
+		if(this.checked){
+			$("input[value="+$(this).val()+"]")
+			.not(this)
+			.attr("disabled",true);
+		}else{
+			$("input[value="+$(this).val()+"]")
+			.not(this)
+			.attr("disabled",false);
+
+		}
 	});
-	$("input[name='nodecb']").click(function(){
-		$("input[name='nodecb']").hide();
-		//$("input[value="+$(this).val()+"]")
-		//	.not()
-		//	.attr("disabled",true);
+
 	});
+
 
 
 

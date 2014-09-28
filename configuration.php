@@ -30,7 +30,7 @@
 		
 
 		<div class="configPanel">
-		<div class="ui inverted segment"><h3 align="center" style="font-size:27px">Configuration</h3></div>
+			<div class="ui inverted segment"><h3 align="center" style="font-size:27px">Configuration</h3></div>
 			<ul style="list-style-type:none">
 
 				<li><input type="radio" name="paneSelector" value="0";> Node</li>
@@ -53,37 +53,37 @@
 						<br>
 						<!-- select head here -->
 						<div class ="ui stackable grid nodeConfig">
-						<!-- gen start here -->
-						<div class="ui three wide column nodeConfig">
-						<div class="ui segment clustering"  style="padding-left:30px">
-							Select head node :<select name="nodeHead" form="nodeForm">
-							<option value="0">-Select head node-</option>
-							<option value="1">Node 1</option>
-							<option value="2">Node 2</option>
-							<option value="3">Node 3</option>
-							<option value="4">Node 4</option>
-							<option value="5">Node 5</option>
-							<option value="6">Node 6</option>
-							<option value="7">Node 7</option>
-							<option value="8">Node 8</option>
-						</select><br>
-						<!-- check for slave(s) -->
-						<ul style="list-style-type:none">
-							<li><input type="checkbox" name="nodecb" value="node1"> Node 1</li>
-							<li><input type="checkbox" name="nodecb" value="node2"> Node 2</li>
-							<li><input type="checkbox" name="nodecb" value="node3"> Node 3</li>
-							<li><input type="checkbox" name="nodecb" value="node4"> Node 4</li>
-							<li><input type="checkbox" name="nodecb" value="node5"> Node 5</li>
-							<li><input type="checkbox" name="nodecb" value="node6"> Node 6</li>
-							<li><input type="checkbox" name="nodecb" value="node7"> Node 7</li>
-							<li><input type="checkbox" name="nodecb" value="node8"> Node 8</li>
-						</ul>
-						</div>
+							<!-- gen start here -->
+							<div class="ui three wide column nodeConfig">
+								<div class="ui segment clustering"  style="padding-left:30px">
+									Select head node :<select name="nodeHead" form="nodeForm">
+									<option value="0">-Select head node-</option>
+									<option value="1">Node 1</option>
+									<option value="2">Node 2</option>
+									<option value="3">Node 3</option>
+									<option value="4">Node 4</option>
+									<option value="5">Node 5</option>
+									<option value="6">Node 6</option>
+									<option value="7">Node 7</option>
+									<option value="8">Node 8</option>
+								</select><br>
+								<!-- check for slave(s) -->
+								<ul style="list-style-type:none">
+								<li><input type="checkbox" name="nodecb" value="1"> Node 1</li>
+									<li><input type="checkbox" name="nodecb" value="2"> Node 2</li>
+									<li><input type="checkbox" name="nodecb" value="3"> Node 3</li>
+									<li><input type="checkbox" name="nodecb" value="4"> Node 4</li>
+									<li><input type="checkbox" name="nodecb" value="5"> Node 5</li>
+									<li><input type="checkbox" name="nodecb" value="6"> Node 6</li>
+									<li><input type="checkbox" name="nodecb" value="7"> Node 7</li>
+									<li><input type="checkbox" name="nodecb" value="8"> Node 8</li>
+								</ul>
+							</div>
 						</div>
 						<!-- gen stop here -->
-						</div>
-						<input type="submit" value="Create" id="create" name="create">
-					</form>
+					</div>
+					<input type="submit" value="Create" id="create" name="create">
+				</form>
 
 			</div>
 			<li><input type="radio" name="paneSelector" value="1"> IP</li>
@@ -123,34 +123,34 @@
 			<li><input type="radio" name="paneSelector" value="3"> Reboot, shutdown</li>
 			<!-- Reboot, shutdown config pane -->
 			<div class="reboot Pane">
-			<div class="ui segment reboot"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
-				<table class="ui inverted table segment">
-					<tr>
-						<td>Node Name</td>
-						<td>Reboot</td>
-						<td>Halt</td>
-					</tr>
-				</table>
-			</div>
+				<div class="ui segment reboot"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
+					<table class="ui inverted table segment">
+						<tr>
+							<td>Node Name</td>
+							<td>Reboot</td>
+							<td>Halt</td>
+						</tr>
+					</table>
+				</div>
 
 			</div>
 			<li><input type="radio" name="paneSelector" value="4"> User Manage</li>
 			<!-- User manage pane -->
 			<div class="userManagement Pane">
-			<div class="ui segment userManagement"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
-				<h3><ins>User management</ins></h3>
-				<table class="ui inverted table segment">
-					<tr>
-						<td>UserID</td>
-						<td>Username</td>
-						<td>Password</td>
-						<td>Verification</td>
-					</tr>
-					<?php include('fetchaccount.php'); ?>
-				</table>
-			</div>
-		</ul>
+				<div class="ui segment userManagement"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
+					<h3><ins>User management</ins></h3>
+					<table class="ui inverted table segment">
+						<tr>
+							<td>UserID</td>
+							<td>Username</td>
+							<td>Password</td>
+							<td>Verification</td>
+						</tr>
+						<?php include('fetchaccount.php'); ?>
+					</table>
+				</div>
+			</ul>
+		</div>
 	</div>
-</div>
 </body>
 </head>
