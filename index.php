@@ -22,8 +22,8 @@
 			</form>
 			
 			<div class="ui ribbon label">Raspberry Pi CLuster</div>
-			<a href="index.php"> <h2 style="color:white; margin-left:80px; font-size:30px"><i class="laptop big icon"></i><ins>Cluster For Education</ins></h2></a>
-			<h3 style="margin-left:80px;margin-top: -30px; padding-bottom:20px; color:#35332e;">An appropriate cluster for study many types of knowledge.</h3>
+			<a href="index.php"> <h2 style="color:white; margin-left:80px; font-size:35px"><i class="laptop big icon"></i><ins><em>Cluster For Education</em></ins></h2></a>
+			<h3 style="margin-left:80px;margin-top: -35px; padding-bottom:20px; color:#35332e;">An appropriate cluster for study many types of knowledge.</h3>
 		</div>
 
 
