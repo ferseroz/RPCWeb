@@ -110,7 +110,15 @@
 			<li><input type="radio" name="paneSelector" value="2"> Run node</li>
 			<!-- Run config pane -->
 			<div class="run Pane">
-
+				<div class="ui segment run" style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
+					<table class="ui inverted table segment">
+						<tr>
+							<td>Node Name</td>
+							<td>Run</td>
+							<td>Stop</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 			<li><input type="radio" name="paneSelector" value="3"> Reboot, shutdown</li>
 			<!-- Reboot, shutdown config pane -->
