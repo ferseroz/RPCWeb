@@ -19,11 +19,11 @@
 				Password: <input type="password" name="password" id="password">
 				<input type="submit" value="Login">
 				<br>
-				<a style="float:right; color:white"href="">Request an account</a>
+				<a style="float:right; color:white" href="localhost/RPCweb/requestaccount.php">Request an account</a>
 			</form>
 			
 			<div class="ui ribbon label">Raspberry Pi CLuster</div>
-			<a href="file:///C:/Users/nbutterbutter/Documents/GitHub/RPCWeb/index.html"><h2 style="color:white; margin-left:80px; font-size:35px"><i class="laptop big icon"></i><ins><em>Cluster For Education</em></ins></h2></a>
+			<a href="localhost/RPCWeb/index.html"><h2 style="color:white; margin-left:80px; font-size:35px"><i class="laptop big icon"></i><ins><em>Cluster For Education</em></ins></h2></a>
 			<h3 style="margin-left:80px;margin-top: -35px; padding-bottom:20px; color:#35332e;"><em>An appropriate cluster for study many types of knowledge.</em></h3>
 		</div>
 
