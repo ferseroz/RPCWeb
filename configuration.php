@@ -103,7 +103,7 @@
 						Subnet Mask : <input style="width:100%" type="text" name="subnet"><br>
 						Router: <input style="width:100%" type="text" name="router"><br>
 						DNS: <input style="width:100%" type="text" name="dns"><br>
-
+						<input type="submit" value="Create" id="change" name="ipForm">
 					</form>
 				</div>
 			</div>
