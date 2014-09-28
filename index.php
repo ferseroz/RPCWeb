@@ -58,14 +58,15 @@
 						<li><input type="radio" name="to" value="all"> All</li>
 						<li><input type="radio" name="to" value="spec" class = "specNode"> Specify nodes(s)</li>
 						<ul style="list-style-type:none">
-							<li><input type="checkbox" name="node[]" value="192.168.1.9"> Node 1</li>
-							<li><input type="checkbox" name="node[]" value="192.168.1.2"> Node 2</li>
-							<li><input type="checkbox" name="node[]" value="192.168.1.3"> Node 3</li>
-							<li><input type="checkbox" name="node[]" value="192.168.1.4"> Node 4</li>
-							<li><input type="checkbox" name="node[]" value="192.168.1.5"> Node 5</li>
-							<li><input type="checkbox" name="node[]" value="192.168.1.6"> Node 6</li>
-							<li><input type="checkbox" name="node[]" value="192.168.1.7"> Node 7</li>
-							<li><input type="checkbox" name="node[]" value="192.168.1.8"> Node 8</li>
+							
+							<!-Generate Selection-!>
+							<?php
+							include('getlist.php');
+							for($i = 0 ; $i < sizeof($nodeip) ; $i++){
+								echo "<li><input type='checkbox' name='node[]' value='" . $nodeip[$i] . "'>" . $nodename[$i] . "</li>";
+							}
+							?>
+
 							<input type="submit" value="Upload" id="upload" name="upload">
 						</ul>
 					</ul>
