@@ -1,6 +1,6 @@
 <?php
 	$query = "SELECT * FROM node";
-	$result = mysql_query($query) or die(mysql_error());;
+	$result = mysql_query($query) or die(mysql_error());
 
 	while($row = mysql_fetch_array($result)) {
 		$host = $row['ip'];
