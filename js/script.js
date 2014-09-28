@@ -5,8 +5,8 @@ $(document).ready(function(){
 	$('.ui.three.wide.column.nodeConfig').remove();
 	var $panes = $('.Pane');
 	$panes.hide();
-	var $nodecb = $("input[name='nodecb'");
-	$nodecb.attr("disabled",true);
+	
+
 	var previous;
 
 
@@ -42,6 +42,12 @@ $(document).ready(function(){
 			}
 		});
 
+	});
+	$("input[name='nodecb']").click(function(){
+		$("input[name='nodecb']").hide();
+		//$("input[value="+$(this).val()+"]")
+		//	.not()
+		//	.attr("disabled",true);
 	});
 
 
