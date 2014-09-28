@@ -77,12 +77,13 @@
 							<li><input type="checkbox" name="nodecb" value="node6"> Node 6</li>
 							<li><input type="checkbox" name="nodecb" value="node7"> Node 7</li>
 							<li><input type="checkbox" name="nodecb" value="node8"> Node 8</li>
-							<input type="submit" value="Create" id="create" name="create">
+							
 						</ul>
 						</div>
 						</div>
 						<!-- gen stop here -->
 						</div>
+						<input type="submit" value="Create" id="create" name="create">
 					</form>
 
 			</div>
