@@ -1,4 +1,7 @@
 <?php
+include('Net/SSH2.php');
+include('config.php');
+
 	$query = "SELECT * FROM node";
 	$result = mysql_query($query) or die(mysql_error());
 
@@ -9,6 +12,10 @@
 		exec("ping -c 1 -s 8 -W 50 " . $host, $output, $ping);
 
 		if($ping == 0) {
+			$ssh = new Net_SSH2($host);
+			if (!$ssh->login($SSH_USERNAME, $SSH_PASSWORD)) {
+	    		exit('Login Failed');
+			}
 			echo "<tr>";
 			echo "<td>" . $row['nodename'] . "</td>";
 			echo "<td>" . $row['ip'] . "</td>";

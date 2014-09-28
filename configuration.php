@@ -78,10 +78,10 @@
 			<!-- IP config pane -->
 			<div class="ipConfig Pane">
 				<div class="ui segment ipConfig" style="margin-left:25px; margin-top: 10px; margin-right: 1000px; margin-bottom:5px">
-					<form id="ipForm" style="margin-left:10px;">
+					<form action="ipconfigure.php" id="ipForm" style="margin-left:10px;" method="POST">
 						Select node:
 						<select name="node" form="ipForm">
-							<option value="192.168.1.9">Node 1</option>
+							<option value="192.168.1.10">Node 1</option>
 							<option value="192.168.1.2">Node 2</option>
 							<option value="192.168.1.3">Node 3</option>
 							<option value="192.168.1.4">Node 4</option>
@@ -89,9 +89,10 @@
 						<br>
 						IP: <input style="width:190px" type="text" name="ip"><br>
 						Subnet Mask : <input style="width:117px" type="text" name="subnet"><br>
+						Gateway: <input style="width:120px" type="text" name="gateway"><br>
 						Router: <input style="width:161px" type="text" name="router"><br>
 						DNS: <input style="width:173px" type="text" name="dns"><br>
-
+						<input type="submit" value="Submit" id="create" name="create">
 					</form>
 				</div>
 			</div>
