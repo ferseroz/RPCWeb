@@ -35,7 +35,7 @@ $(document).ready(function(){
 
 
 			$("select[name='nodeHead'] option[value="+previous+"]").removeAttr("disabled","disabled");
-			$("input[value="+previous+"]")
+			$("input[type=checkbox][value="+previous+"]")
 						.attr("disabled",false);
 
 			if($(this).val() !== "0"){
@@ -43,18 +43,18 @@ $(document).ready(function(){
 				var se = $(this).val();
 				//$("select option:not(:selected)").removeAttr("disabled","disabled");
 				$("select[name='nodeHead'] option[value="+se+"]").attr("disabled","disabled");
-				$("input[value="+se+"]")
+				$("input[type=checkbox][value="+se+"]")
 						.attr("disabled",true);
 			}
 		});
 
 		$("input[name='nodecb']").change(function(){
 		if(this.checked){
-			$("input[value="+$(this).val()+"]")
+			$("input[type=checkbox][value="+$(this).val()+"]")
 			.not(this)
 			.attr("disabled",true);
 		}else{
-			$("input[value="+$(this).val()+"]")
+			$("input[type=checkbox][value="+$(this).val()+"]")
 			.not(this)
 			.attr("disabled",false);
 
