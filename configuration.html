@@ -39,31 +39,33 @@
 					<form id="nodeForm" style="margin-left:30px;">
 						<!-- select how many node will be head node -->
 						How many head node(s)?
-						<select name="headNode" form="nodeForm">
-							<option value="node1">1 Node</option>
-							<option value="node2">2 Nodes</option>
-							<option value="node3">3 Nodes</option>
-							<option value="node4">4 Nodes</option>
-							<option value="node4">5 Nodes</option>
-							<option value="node4">6 Nodes</option>
-							<option value="node4">7 Nodes</option>
-							<option value="node4">8 Nodes</option>
+						<select name="numberHead" form="nodeForm">
+							<option value="0">-How many head-</option>
+							<option value="1">1 Node</option>
+							<option value="2">2 Nodes</option>
+							<option value="3">3 Nodes</option>
+							<option value="4">4 Nodes</option>
+							<option value="5">5 Nodes</option>
+							<option value="6">6 Nodes</option>
+							<option value="7">7 Nodes</option>
+							<option value="8">8 Nodes</option>
 						</select>
 						<br>
 						<!-- select head here -->
 						<div class ="ui stackable grid nodeConfig">
 						<!-- gen start here -->
-						<div class="ui three wide column">
+						<div class="ui three wide column nodeConfig">
 						<div class="ui segment clustering"  style="padding-left:30px">
-							Select head node :<select name="node" form="nodeForm">
-							<option value="node1">Node 1</option>
-							<option value="node2">Node 2</option>
-							<option value="node3">Node 3</option>
-							<option value="node4">Node 4</option>
-							<option value="node4">Node 5</option>
-							<option value="node4">Node 6</option>
-							<option value="node4">Node 7</option>
-							<option value="node4">Node 8</option>
+							Select head node :<select name="nodeHead" form="nodeForm">
+							<option value="0">-Select head node-</option>
+							<option value="1">Node 1</option>
+							<option value="2">Node 2</option>
+							<option value="3">Node 3</option>
+							<option value="4">Node 4</option>
+							<option value="5">Node 5</option>
+							<option value="6">Node 6</option>
+							<option value="7">Node 7</option>
+							<option value="8">Node 8</option>
 						</select><br>
 						<!-- check for slave(s) -->
 						<ul style="list-style-type:none">
@@ -87,7 +89,7 @@
 			<li><input type="radio" name="paneSelector" value="1"> IP</li>
 			<!-- IP config pane -->
 			<div class="ipConfig Pane">
-				<div class="ui segment ip" style="margin-left:25px; margin-top: 10px; margin-right: 1000px; margin-bottom:5px">
+				<div class="ui segment ipConfig" style="margin-left:25px; margin-top: 10px; margin-right: 1000px; margin-bottom:5px">
 					<form id="ipForm" style="">
 						Select node:
 						<select name="node" form="ipForm">
@@ -113,13 +115,23 @@
 			<li><input type="radio" name="paneSelector" value="3"> Reboot, shutdown</li>
 			<!-- Reboot, shutdown config pane -->
 			<div class="reboot Pane">
+			<div class="ui segment reboot"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
+				<table class="ui inverted table segment">
+					<tr>
+						<td>Node Name</td>
+						<td>Reboot</td>
+						<td>Halt</td>
+					</tr>
+				</table>
+			</div>
 
 			</div>
 			<li><input type="radio" name="paneSelector" value="4"> User Manage</li>
 			<!-- User manage pane -->
 			<div class="userManagement Pane">
-				<h2>User management</h2>
-				<table>
+			<div class="ui segment userManagement"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
+				<h3><ins>User management</ins></h3>
+				<table class="ui inverted table segment">
 					<tr>
 						<td>UserID</td>
 						<td>Username</td>
