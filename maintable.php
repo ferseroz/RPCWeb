@@ -25,7 +25,7 @@ include('config.php');
 			echo "<td><a href='http://" . $row['ip'] . ":4200' target='_blank'>" . $row['ip'] . "</a></td>";
 		} else {
 			echo "<tr>";
-			echo "<td>" . $row['nodename'] . "</td>";
+			echo "<td><a href='nodedetail.php?ip=". urlencode($row['ip']) . "'>" . $row['nodename'] . "</a></td>";
 			echo "<td>" . $row['ip'] . "</td>";
 			echo "<td> N/A </td>";
 			echo "<td> N/A </td>";
