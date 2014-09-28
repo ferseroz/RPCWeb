@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Raspberry Pis Cluster</title>
+	<script src="js/script.js"></script>
+	<script src="packaged/javascript/semantic.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/web.css">
+	<link rel="stylesheet" type="text/css" href="packaged/css/semantic.css">
+</head>
+<body>
+
+	<div class = "main"style="clear:both" >
+
+		<div class = "headPane">
+			<button class="configButton" type="button">Configuration</button>
+			<form class = "loginForm" action="checklogin.php" method="POST">
+				Username: <input type="text" name="username" id="username">
+				Password: <input type="password" name="password" id="password">
+				<input type="submit" value="Login">
+				<br>
+				<a style="float:right; color:white"href="">Request an account</a>
+			</form>
+			
+			<div class="ui ribbon label">Raspberry Pi CLuster</div>
+			<a href="file:///C:/Users/nbutterbutter/Documents/GitHub/RPCWeb/index.html"><h2 style="color:white; margin-left:80px; font-size:35px"><i class="laptop big icon"></i><ins><em>Cluster For Education</em></ins></h2></a>
+			<h3 style="margin-left:80px;margin-top: -35px; padding-bottom:20px; color:#35332e;"><em>An appropriate cluster for study many types of knowledge.</em></h3>
+		</div>
+
+		<div class="ui two column grid segment">
+			<div class="equal height row">
+				<div class="column" style="background-color:#b2d0cc">
+					<div class = "tableNode" >
+						<div class="ui segment" style="padding-bottom:8px">
+							<div class="ui tertiary inverted segment">
+								<h3 align="center" style="color:black">Node details</h3>
+							</div>
+							<table class="ui inverted table segment">
+								<?php
+								include('getdetail.php');
+								?>
+							</table>
+							<div class="ui horizontal icon divider">
+							<i class="circular settings icon"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="column" style="background-color:#b2d0cc">
+					<div class="frameNode">
+						<div class="ui segment" style="padding:5px">
+							<div class= "frame" style="float:center">
+								<iframe src="http://www.w3schools.com/html/html_iframe.asp" frameborder="0" width="800px" height="450px">
+								</iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</body>
+</head>
