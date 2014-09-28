@@ -34,7 +34,7 @@
 
 .uploadPane{
 	margin-right: 80px;
-	margin-top: 55px;
+	margin-top: 60px;
 	float : right;
 }
 
@@ -67,4 +67,5 @@ table, th, td{
 .ui.section.divider{
 padding-top: -70px;
 }
+
 
