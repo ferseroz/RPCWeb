@@ -1,10 +1,8 @@
 <?php
 include('Net/SFTP.php');
-//include('Net/SSH2.php');
 include('config.php');
 
-//$node = $_POST['node'];
-$node = "192.168.1.10";
+$node = $_POST['node'];
 $ip = $_POST['ip'];
 $subnet = $_POST['subnet'];
 $gateway = $_POST['gateway'];
@@ -42,7 +40,7 @@ $content = "network 192.168.1.0\n";
 fwrite($file, $content);
 $content = "broadcast 192.168.1.255\n";
 fwrite($file, $content);
-$content = "dns-nameservers 8.8.8.8 8.8.4.4";
+$content = "dns-nameservers $dns";
 fwrite($file, $content);
 fclose($file);
 
@@ -62,7 +60,7 @@ if($sftp->put("/etc/network/interfaces", "upload/interfaces", NET_SFTP_LOCAL_FIL
 	//$query = "UPDATE node SET ip='$ip' WHERE ip='$node'";
 	//$ssh->exec("sudo ifup eth0");
 	//if(mysql_query($query)) {
-		header('Location: fetchnode.php');
+	header('Location: fetchnode.php');
 	//}
 }
 

@@ -93,10 +93,12 @@ include('getlist.php');
 					<form id="ipForm" style="">
 						Select node:
 						<select name="node" form="ipForm">
-							<option value="192.168.1.9">Node 1</option>
-							<option value="192.168.1.2">Node 2</option>
-							<option value="192.168.1.3">Node 3</option>
-							<option value="192.168.1.4">Node 4</option>
+							<?php
+								for($i = 0 ; $i < sizeof($nodeip) ; $i++){
+									echo "<option value='" . $nodeip[$i] . "'>" . $nodename[$i] . "</option>";
+								}
+							?>
+
 						</select>
 						<br>
 						IP: <input style="width:100%" type="text" name="ip"><br>
@@ -117,6 +119,15 @@ include('getlist.php');
 							<td>Run</td>
 							<td>Stop</td>
 						</tr>
+						<?php
+							for($i = 0 ; $i < sizeof($nodeip) ; $i++){
+								echo "<tr>";
+								echo "<td>" . $nodename[$i] . "</td>";
+								echo "<td>N/A</td>";
+								echo "<td>N/A</td>";
+								echo "</tr>";
+							}
+						?>
 					</table>
 				</div>
 			</div>
