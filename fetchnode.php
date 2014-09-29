@@ -27,7 +27,7 @@ for($i = 2 ; $i < 21 ; $i++) {
 		//	case 64: $os = "Linux"; break;
 		//	case 128: $os = "Windows"; break;
 		//	case 255: $os = "Cisco or Solaris"; break;
-		//}
+		//}	
 		//echo $os . " hostname: " . $hostname . "<br>";
 		$insert = "INSERT INTO node(nodename, ip) VALUES('$hostname', '$host')";
 		$inr = mysql_query($insert) or die(mysql_error());

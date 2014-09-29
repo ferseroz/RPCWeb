@@ -27,14 +27,14 @@ $(document).ready(function(){
 			i++;
 		}
 
-		$("select[name='nodeHead']").click(function(){
+		$("select[name='head[]']").click(function(){
 
 			previous = this.value;
 
 		}).change(function(){
 
 
-			$("select[name='nodeHead'] option[value="+previous+"]").removeAttr("disabled","disabled");
+			$("select[name='head[]'] option[value="+previous+"]").removeAttr("disabled","disabled");
 			$("input[type=checkbox][value="+previous+"]")
 						.attr("disabled",false);
 
@@ -42,7 +42,7 @@ $(document).ready(function(){
 				//$('option:selected').attr("disabled","disabled");
 				var se = $(this).val();
 				//$("select option:not(:selected)").removeAttr("disabled","disabled");
-				$("select[name='nodeHead'] option[value="+se+"]").attr("disabled","disabled");
+				$("select[name='head[]'] option[value="+se+"]").attr("disabled","disabled");
 				$("input[type=checkbox][value="+se+"]")
 						.attr("disabled",true);
 			}
