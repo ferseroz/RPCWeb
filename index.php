@@ -37,7 +37,7 @@
 							<th>IP</th>
 							<th>CPU</th>
 							<th>WORK</th>
-							<th>Detail</th>
+							<!--<th>Detail</th>-->
 							<th>SSH</th>
 						</tr>
 					</thead>
