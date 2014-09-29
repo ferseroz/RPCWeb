@@ -11,4 +11,5 @@ if (!$ssh->login($SSH_USERNAME, $SSH_PASSWORD)) {
 
 echo $ssh->exec("sudo reboot");
 
+header('Location: configuration.php');
 ?>

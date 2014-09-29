@@ -1,3 +1,6 @@
+<?php
+include('getlist.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,19 +39,18 @@
 				<li><input type="radio" name="paneSelector" value="0";> Node</li>
 				<!-- Node config pane -->
 				<div class= "nodeConfig Pane">
-					<form id="nodeForm" style="margin-left:30px;">
+					<form action="nodemanagement.php" id="nodeForm" style="margin-left:30px;" method="POST">
 						<!-- select how many node will be head node -->
 						How many head node(s)?
 						<select name="numberHead" form="nodeForm">
 							<option value="0">-How many head-</option>
-							<option value="1">1 Node</option>
-							<option value="2">2 Nodes</option>
-							<option value="3">3 Nodes</option>
-							<option value="4">4 Nodes</option>
-							<option value="5">5 Nodes</option>
-							<option value="6">6 Nodes</option>
-							<option value="7">7 Nodes</option>
-							<option value="8">8 Nodes</option>
+
+							<?
+							for($i = 1 ; $i <= sizeof($nodename) ; $i++){
+								echo "<option value='" . $i . "'>" . $i . "</option>";
+							}
+							?>
+
 						</select>
 						<br>
 						<!-- select head here -->
@@ -56,27 +58,25 @@
 							<!-- gen start here -->
 							<div class="ui three wide column nodeConfig">
 								<div class="ui segment clustering"  style="padding-left:30px">
-									Select head node :<select name="nodeHead" form="nodeForm">
+									Select head node :
+									<select name="head[]" form="nodeForm">
 									<option value="0">-Select head node-</option>
-									<option value="1">Node 1</option>
-									<option value="2">Node 2</option>
-									<option value="3">Node 3</option>
-									<option value="4">Node 4</option>
-									<option value="5">Node 5</option>
-									<option value="6">Node 6</option>
-									<option value="7">Node 7</option>
-									<option value="8">Node 8</option>
+									<?php
+									for($i = 1 ; $i <= sizeof($nodeip) ; $i++){
+										echo "<option value='" . $i . "'>" . $nodename[$i-1] . "</option>";
+									}
+									?>
+
 								</select><br>
 								<!-- check for slave(s) -->
 								<ul style="list-style-type:none">
-								<li><input type="checkbox" name="nodecb" value="1"> Node 1</li>
-									<li><input type="checkbox" name="nodecb" value="2"> Node 2</li>
-									<li><input type="checkbox" name="nodecb" value="3"> Node 3</li>
-									<li><input type="checkbox" name="nodecb" value="4"> Node 4</li>
-									<li><input type="checkbox" name="nodecb" value="5"> Node 5</li>
-									<li><input type="checkbox" name="nodecb" value="6"> Node 6</li>
-									<li><input type="checkbox" name="nodecb" value="7"> Node 7</li>
-									<li><input type="checkbox" name="nodecb" value="8"> Node 8</li>
+									<?php
+									for($i = 1 ; $i <= sizeof($nodename) ; $i++){
+										// EDIT nodecb to nodecb[] as array
+										echo "<li><input type='checkbox' name='nodecb[]' value='" . $i . "'>" . $nodename[$i-1] . "</li>";
+									}
+									?>
+
 								</ul>
 							</div>
 						</div>
@@ -131,7 +131,6 @@
 							<td>Halt</td>
 						</tr>
 						<?php
-						include('getlist.php');
 						for($i = 0 ; $i < sizeof($nodename) ; $i++){
 							echo "<tr>";
 							echo "<td>" . $nodename[$i] . "</td>";
