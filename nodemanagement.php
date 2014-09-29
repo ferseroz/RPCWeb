@@ -110,7 +110,9 @@ function configHadoop($role, $id, $slaveid){
 
 	$file = fopen("upload/slaves", "w") or die("Unable to create file");
 	for($i = 0 ; $i < sizeof($slaveid) ; $i++) {
-		$content = $nodeip[$slaveid[$i]-1] + "\n";
+		$content = $nodeip[$slaveid[$i]-1] ;
+		fwrite($file, $content);
+		$content = "\n";
 		fwrite($file, $content);
 	}
 	fclose($file);
