@@ -6,21 +6,20 @@ $node = $_POST['node'];
 $ip = $_POST['ip'];
 $subnet = $_POST['subnet'];
 $gateway = $_POST['gateway'];
-$router = $_POST['router'];
 $dns = $_POST['dns'];
 
-//echo echo "auto lo<br>";
-//echo "iface lo inet loopback<br><br>";
-//echo "auto eth0<br>";
-//echo "iface eth0 inet static<br>";
-//echo "address $ip<br>";
-//echo "netmask $subnet<br>";
-//echo "gateway $gateway<br>";
-//echo "network 192.168.1.0<br>";
-//echo "broadcast 192.168.1.255";
-//echo "router $router<br>";
-//echo "dns-nameservers $dns<br>";
-
+/*
+echo "auto lo<br>";
+echo "iface lo inet loopback<br><br>";
+echo "auto eth0<br>";
+echo "iface eth0 inet static<br>";
+echo "address $ip<br>";
+echo "netmask $subnet<br>";
+echo "gateway $gateway<br>";
+echo "network 192.168.1.0<br>";
+echo "broadcast 192.168.1.255";
+echo "dns-nameservers $dns<br>";
+*/
 $file = fopen("upload/interfaces", "w") or die("Unable to create file");
 $content = "auto lo\n";
 fwrite($file, $content);
@@ -57,11 +56,7 @@ if($sftp->put("/etc/network/interfaces", "upload/interfaces", NET_SFTP_LOCAL_FIL
 
 	$ssh->setTimeout(1);
 	$ssh->exec("sudo ifdown eth0; sudo ifup eth0");
-	//$query = "UPDATE node SET ip='$ip' WHERE ip='$node'";
-	//$ssh->exec("sudo ifup eth0");
-	//if(mysql_query($query)) {
 	header('Location: fetchnode.php');
-	//}
 }
 
 ?>

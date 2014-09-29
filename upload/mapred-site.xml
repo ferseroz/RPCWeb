@@ -3,6 +3,6 @@
 <configuration>
 <property>
 <name>mapred.job.tracker</name>
-<value>192.168.1.20:54311</value><description></description>
+<value>hadoop1-VirtualBox:54311</value><description></description>
 </property>
 </configuration>

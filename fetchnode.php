@@ -5,7 +5,7 @@ include('Net/SSH2.php');
 $query = "DELETE FROM node";
 $result = mysql_query($query) or die(mysql_error());
 
-for($i = 2 ; $i < 10 ; $i++) {
+for($i = 2 ; $i < 21 ; $i++) {
 	$host = "192.168.1." . $i;
 	$output = array();
 	$result = null;
@@ -17,7 +17,8 @@ for($i = 2 ; $i < 10 ; $i++) {
 		if (!$ssh->login($SSH_USERNAME, $SSH_PASSWORD)) {
     		exit('Login Failed');
     	}
-    	$hostname = $ssh->exec("cat /etc/hostname");
+    	$nodename = explode("%0A", urlencode($ssh->exec("cat /etc/hostname")));
+    	$hostname = $nodename[0];
 		echo $host . " is available OS: ";
 
 		$ttl = explode("ttl=", $output[1]);

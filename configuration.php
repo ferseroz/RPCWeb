@@ -59,7 +59,7 @@ include('getlist.php');
 							<div class="ui three wide column nodeConfig">
 								<div class="ui segment clustering"  style="padding-left:30px">
 									Select head node :
-									<select name="head[]" form="nodeForm">
+									<select name="headnodes[]" form="nodeForm">
 									<option value="0">-Select head node-</option>
 									<?php
 									for($i = 1 ; $i <= sizeof($nodeip) ; $i++){
@@ -90,7 +90,7 @@ include('getlist.php');
 			<!-- IP config pane -->
 			<div class="ipConfig Pane">
 				<div class="ui segment ipConfig" style="margin-left:25px; margin-top: 10px; margin-right: 1000px; margin-bottom:5px">
-					<form id="ipForm" style="">
+					<form action="ipconfigure.php" id="ipForm" style="" method="POST">
 						Select node:
 						<select name="node" form="ipForm">
 							<?php
@@ -103,7 +103,7 @@ include('getlist.php');
 						<br>
 						IP: <input style="width:100%" type="text" name="ip"><br>
 						Subnet Mask : <input style="width:100%" type="text" name="subnet"><br>
-						Router: <input style="width:100%" type="text" name="router"><br>
+						Gateway: <input style="width:100%" type="text" name="gateway"><br>
 						DNS: <input style="width:100%" type="text" name="dns"><br>
 						<input type="submit" value="Create" id="change" name="ipForm">
 					</form>

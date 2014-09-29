@@ -1,8 +1,9 @@
 127.0.0.1	localhost
 127.0.1.1	hapdoop1-VirtualBox
 
-192.168.1.13	node1
-192.168.1.20	node2
+192.168.1.2	hadoop1-VirtualBox
+192.168.1.5	hdnode1
+
 
 # The following lines are desirable for IPv6 capable hosts
 ::1	ip6-localhost ip6-loopback

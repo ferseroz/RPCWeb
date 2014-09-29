@@ -1,15 +1,11 @@
 <?php
 include('Net/SFTP.php');
-
-$SSH_USERNAME = 'hduser';
-$SSH_PASSWORD = 'ubuntu';
+include('getlist.php');
 
 $node = array();
 
 if($_POST['to'] == "all") {
-	for($i=0 ; $i < 8 ; $i++) {
-		array_push($node, "192.168.1." . $i);
-	}
+		$node = $nodeip;
 } else {
 	foreach($_POST['node'] as $ip){
 		array_push($node, $ip);
