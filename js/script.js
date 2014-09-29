@@ -48,7 +48,7 @@ $(document).ready(function(){
 			}
 		});
 
-		$("input[name='nodecb']").change(function(){
+		$("input[name='nodecb[]']").change(function(){
 		if(this.checked){
 			$("input[type=checkbox][value="+$(this).val()+"]")
 			.not(this)
