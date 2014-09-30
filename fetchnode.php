@@ -5,7 +5,7 @@ include('Net/SSH2.php');
 $query = "DELETE FROM node";
 $result = mysql_query($query) or die(mysql_error());
 
-for($i = 2 ; $i < 21 ; $i++) {
+for($i = 2 ; $i < 10 ; $i++) {
 	$host = "192.168.1." . $i;
 	$output = array();
 	$result = null;
