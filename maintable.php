@@ -19,16 +19,19 @@ include('config.php');
 			echo "<tr>";
 			echo "<td><a href='nodedetail.php?ip=". urlencode($row['ip']) . "'>" . $row['nodename'] . "</a></td>";
 			echo "<td>" . $row['ip'] . "</td>";
+<<<<<<< HEAD
 			//echo "<td>" . $ssh->exec("top -b -n 10 -d.2 | grep 'Cpu' |  awk 'NR==3{ print($2)}'") . "</td>";
 			echo "<td>" . $ssh->exec("top -b -n 10 -d.2 | grep 'Cpu' |  awk 'NR==3{ print($2)}'") . "</td>";
 			echo "<td> N/A </td>";
+=======
+			echo "<td class='cpu cell'>" . $ssh->exec("top -b -n 10 -d.2 | grep 'Cpu' |  awk 'NR==3{ print($2)}'") . "</td>";
+>>>>>>> FETCH_HEAD
 			echo "<td> N/A </td>";
 			echo "<td><a href='http://" . $row['ip'] . ":4200' target='_blank'>" . $row['ip'] . "</a></td>";
 		} else {
 			echo "<tr>";
 			echo "<td><a href='nodedetail.php?ip=". urlencode($row['ip']) . "'>" . $row['nodename'] . "</a></td>";
 			echo "<td>" . $row['ip'] . "</td>";
-			echo "<td> N/A </td>";
 			echo "<td> N/A </td>";
 			echo "<td> N/A </td>";
 			echo "<td>Unavailable</td>";

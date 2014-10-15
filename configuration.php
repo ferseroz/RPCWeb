@@ -39,8 +39,12 @@ include('getlist.php');
 				<li><input type="radio" name="paneSelector" value="0";> Node</li>
 				<!-- Node config pane -->
 				<div class= "nodeConfig Pane">
+				<br>
+					<input type="submit" value="Fetch Node" id="create" name="fetchNode" style="margin-left:30px">
+						
 					<form action="nodemanagement.php" id="nodeForm" style="margin-left:30px;" method="POST">
 						<!-- select how many node will be head node -->
+						<br>
 						How many head node(s)?
 						<select name="numberHead" form="nodeForm">
 							<option value="0">-How many head-</option>

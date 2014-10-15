@@ -10,6 +10,9 @@ $(document).ready(function(){
 	var previous;
 
 
+	$("input[name='fetchNode']").click(function(){
+
+	});
 
 	$("input[name='paneSelector']").click(function(){
 		$panes.hide();
