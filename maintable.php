@@ -19,6 +19,7 @@ include('config.php');
 			echo "<tr>";
 			echo "<td><a href='nodedetail.php?ip=". urlencode($row['ip']) . "'>" . $row['nodename'] . "</a></td>";
 			echo "<td>" . $row['ip'] . "</td>";
+			//echo "<td>" . $ssh->exec("top -b -n 10 -d.2 | grep 'Cpu' |  awk 'NR==3{ print($2)}'") . "</td>";
 			echo "<td>" . $ssh->exec("top -b -n 10 -d.2 | grep 'Cpu' |  awk 'NR==3{ print($2)}'") . "</td>";
 			echo "<td> N/A </td>";
 			echo "<td> N/A </td>";

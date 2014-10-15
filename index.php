@@ -6,6 +6,7 @@
 	<script src="packaged/javascript/semantic.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/web.css">
 	<link rel="stylesheet" type="text/css" href="packaged/css/semantic.css">
+	
 </head>
 <body>
 

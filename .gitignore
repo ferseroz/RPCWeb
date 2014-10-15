@@ -3,3 +3,19 @@
 config.php
 
 config.php
+
+*.xml
+
+*.xml
+
+upload/hosts
+
+upload/interfaces
+
+upload/masters
+
+upload/slaves
+
+upload/mapred-site.xml
+
+upload/core-site.xml

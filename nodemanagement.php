@@ -42,13 +42,13 @@ function configHadoop($id, $slaveid){
 	$hostname = $nodename[$id-1];
 	
 	$sftp = new Net_SFTP($ip);
-	if (!$sftp->login($SSH_USERNAME, $SSH_PASSWORD)) {
+	if (!$sftp->login($hduser, $hdpass)) {
     	exit('Login Failed');
 	}
 
 	for($i = 0 ; $i < sizeof($slaveid) ; $i++) {
 			$sftpslaves[$i] = new Net_SFTP($nodeip[$slaveid[$i]-1]);
-			if (!$sftpslaves[$i]->login($SSH_USERNAME, $SSH_PASSWORD)) {
+			if (!$sftpslaves[$i]->login($hduser, $hdpass)) {
 	    	exit('Login Failed');
 		}
 	}
@@ -154,20 +154,12 @@ function configHadoop($id, $slaveid){
 	echo $sftp->put("/usr/local/hadoop/conf/slaves", "upload/slaves", NET_SFTP_LOCAL_FILE);
 	
 	$file = fopen("upload/hosts", "w") or die("Unable to create file");
+	/* For VMWare Ubuntu 14.04 */
+	//$content = "127.0.0.1\tlocalhost\n";
+	//fwrite($file, $content);
+	//$content = "127.0.1.1\thapdoop1-VirtualBox\n\n";
+	//fwrite($file, $content);
 	$content = "127.0.0.1\tlocalhost\n";
-	fwrite($file, $content);
-	$content = "127.0.1.1\thapdoop1-VirtualBox\n\n";
-	fwrite($file, $content);
-	$content = $nodeip[$id-1] . "\t" . $nodename[$id-1] . "\n";
-	fwrite($file, $content);
-	for($i = 0 ; $i < sizeof($slaveid) ; $i++){
-		$n = 2 + $i;
-		$content = $nodeip[$slaveid[$i]-1] . "\t" . $nodename[$slaveid[$i]-1] . "\n";
-		fwrite($file, $content);
-	}
-	$content = "\n\n";
-	fwrite($file, $content);
-	$content = "# The following lines are desirable for IPv6 capable hosts\n";
 	fwrite($file, $content);
 	$content = "::1\tip6-localhost ip6-loopback\n";
 	fwrite($file, $content);
@@ -177,8 +169,15 @@ function configHadoop($id, $slaveid){
 	fwrite($file, $content);
 	$content = "ff02::1\tip6-allnodes\n";
 	fwrite($file, $content);
-	$content = "ff02::2\tip6-allrouters\n";
+	$content = "ff02::2\tip6-allrouters\n\n";
 	fwrite($file, $content);
+	$content = $nodeip[$id-1] . "\t" . $nodename[$id-1] . "\n";
+	fwrite($file, $content);
+	for($i = 0 ; $i < sizeof($slaveid) ; $i++){
+		$n = 2 + $i;
+		$content = $nodeip[$slaveid[$i]-1] . "\t" . $nodename[$slaveid[$i]-1] . "\n";
+		fwrite($file, $content);
+	}
 	fclose($file);
 
 	echo $sftp->put("/etc/hosts", "upload/hosts", NET_SFTP_LOCAL_FILE);

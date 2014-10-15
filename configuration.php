@@ -104,7 +104,9 @@ include('getlist.php');
 						IP: <input style="width:100%" type="text" name="ip"><br>
 						Subnet Mask : <input style="width:100%" type="text" name="subnet"><br>
 						Gateway: <input style="width:100%" type="text" name="gateway"><br>
-						DNS: <input style="width:100%" type="text" name="dns"><br>
+						<!--DNS: <input style="width:100%" type="text" name="dns"><br>-->
+						Network: <input style="width:100%" type="text" name="network"><br>
+						Broadcast: <input style="width:100%" type="text" name="broadcast"><br>
 						<input type="submit" value="Create" id="change" name="ipForm">
 					</form>
 				</div>
@@ -115,14 +117,18 @@ include('getlist.php');
 				<div class="ui segment run" style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
 					<table class="ui inverted table segment">
 						<tr>
-							<td>Node Name</td>
+							<td>Headnode Name</td>
+							<td>Cluster No.</td>
 							<td>Run</td>
 							<td>Stop</td>
 						</tr>
 						<?php
-							for($i = 0 ; $i < sizeof($nodeip) ; $i++){
+							$query = "SELECT * FROM node WHERE role='1'";
+							$result = mysql_query($query) or die(mysql_error());
+							while($row = mysql_fetch_array($result)) {
 								echo "<tr>";
-								echo "<td>" . $nodename[$i] . "</td>";
+								echo "<td>" . $row['nodename'] . "</td>";
+								echo "<td>" . $row['cluster'] . "</td>";
 								echo "<td>N/A</td>";
 								echo "<td>N/A</td>";
 								echo "</tr>";
