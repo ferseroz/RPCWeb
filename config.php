@@ -2,7 +2,7 @@
 $host="http://localhost";
 $mysql_hostname = "localhost";
 $mysql_user = "root";
-$mysql_password = "";
+$mysql_password = "root";
 $mysql_database = "Raspberrypi";
 $SSH_USERNAME = 'hduser';
 $SSH_PASSWORD = 'ubuntu';

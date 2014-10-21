@@ -38,7 +38,7 @@
 							<p style="margin-top: -12px; margin-left: 4px; color:black">Username: </p><input style="width:100%; height:25px; " type="text" name="username" id="username">
 							<p style="margin-left: 4px; color:black">Password: </p><input style="width:100%; height:25px;" type="password" name="password" id="password">
 							<br>
-							<p>* x-characters minimum for password.</p>
+							<p>* 6-12 characters minimum for password.</p>
 						
 							<input style="margin-top: 10px; margin-left:4px; width:100px; height:30px" type="submit" value="Back">
 							<input style="margin-top: 10px; float:right; width:100px; height:30px" type="submit" value="Submit">

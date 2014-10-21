@@ -40,6 +40,7 @@
 							<th>WORK</th>
 							<!--<th>Detail</th>-->
 							<th>SSH</th>
+							<th>SSH with GUI</th>
 						</tr>
 					</thead>
 					<tbody>

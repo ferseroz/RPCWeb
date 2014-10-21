@@ -36,12 +36,12 @@ include('getlist.php');
 			<div class="ui inverted segment"><h3 align="center" style="font-size:27px">Configuration</h3></div>
 			<ul style="list-style-type:none">
 
-				<li><input type="radio" name="paneSelector" value="0";> Node</li>
+				<li><input type="radio" name="paneSelector" value="0";> Configure Parallel Nodes</li>
 				<!-- Node config pane -->
 				<div class= "nodeConfig Pane">
-				<br>
+					<br>
 					<input type="submit" value="Fetch Node" id="create" name="fetchNode" style="margin-left:30px">
-						
+
 					<form action="nodemanagement.php" id="nodeForm" style="margin-left:30px;" method="POST">
 						<!-- select how many node will be head node -->
 						<br>
@@ -64,69 +64,70 @@ include('getlist.php');
 								<div class="ui segment clustering"  style="padding-left:30px">
 									Select head node :
 									<select name="headnodes[]" form="nodeForm">
-									<option value="0">-Select head node-</option>
-									<?php
-									for($i = 1 ; $i <= sizeof($nodeip) ; $i++){
-										echo "<option value='" . $i . "'>" . $nodename[$i-1] . "</option>";
-									}
-									?>
+										<option value="0">-Select head node-</option>
+										<?php
+										for($i = 1 ; $i <= sizeof($nodeip) ; $i++){
+											echo "<option value='" . $i . "'>" . $nodename[$i-1] . "</option>";
+										}
+										?>
 
-								</select><br>
-								<!-- check for slave(s) -->
-								<ul style="list-style-type:none">
-									<?php
-									for($i = 1 ; $i <= sizeof($nodename) ; $i++){
+									</select><br>
+									<!-- check for slave(s) -->
+									<ul style="list-style-type:none">
+										<?php
+										for($i = 1 ; $i <= sizeof($nodename) ; $i++){
 										// EDIT nodecb to nodecb[] as array
-										echo "<li><input type='checkbox' name='nodecb[]' value='" . $i . "'>" . $nodename[$i-1] . "</li>";
-									}
-									?>
+											echo "<li><input type='checkbox' name='nodecb[]' value='" . $i . "'>" . $nodename[$i-1] . "</li>";
+										}
+										?>
 
-								</ul>
+									</ul>
+								</div>
 							</div>
+							<!-- gen stop here -->
 						</div>
-						<!-- gen stop here -->
-					</div>
-					<input type="submit" value="Create" id="create" name="create">
-				</form>
+						<input type="submit" value="Create" id="create" name="create">
+					</form>
+				</div>
 
-			</div>
-			<li><input type="radio" name="paneSelector" value="1"> IP</li>
-			<!-- IP config pane -->
-			<div class="ipConfig Pane">
-				<div class="ui segment ipConfig" style="margin-left:25px; margin-top: 10px; margin-right: 1000px; margin-bottom:5px">
-					<form action="ipconfigure.php" id="ipForm" style="" method="POST">
-						Select node:
-						<select name="node" form="ipForm">
-							<?php
+				<li><input type="radio" name="paneSelector" value="1"> Setup IP address</li>
+				<!-- IP config pane -->
+				<div class="ipConfig Pane">
+					<div class="ui segment ipConfig" style="margin-left:25px; margin-top: 10px; margin-right: 1000px; margin-bottom:5px">
+						<form action="ipconfigure.php" id="ipForm" style="" method="POST">
+							Select node:
+							<select name="node" form="ipForm">
+								<?php
 								for($i = 0 ; $i < sizeof($nodeip) ; $i++){
 									echo "<option value='" . $nodeip[$i] . "'>" . $nodename[$i] . "</option>";
 								}
-							?>
+								?>
 
-						</select>
-						<br>
-						IP: <input style="width:100%" type="text" name="ip"><br>
-						Subnet Mask : <input style="width:100%" type="text" name="subnet"><br>
-						Gateway: <input style="width:100%" type="text" name="gateway"><br>
-						<!--DNS: <input style="width:100%" type="text" name="dns"><br>-->
-						Network: <input style="width:100%" type="text" name="network"><br>
-						Broadcast: <input style="width:100%" type="text" name="broadcast"><br>
-						<input type="submit" value="Create" id="change" name="ipForm">
-					</form>
+							</select>
+							<br>
+							IP: <input style="width:100%" type="text" name="ip"><br>
+							Subnet Mask : <input style="width:100%" type="text" name="subnet"><br>
+							Gateway: <input style="width:100%" type="text" name="gateway"><br>
+							<!--DNS: <input style="width:100%" type="text" name="dns"><br>-->
+							Network: <input style="width:100%" type="text" name="network"><br>
+							Broadcast: <input style="width:100%" type="text" name="broadcast"><br>
+							<input type="submit" value="Create" id="change" name="ipForm">
+						</form>
+					</div>
 				</div>
-			</div>
-			<li><input type="radio" name="paneSelector" value="2"> Run node</li>
-			<!-- Run config pane -->
-			<div class="run Pane">
-				<div class="ui segment run" style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
-					<table class="ui inverted table segment">
-						<tr>
-							<td>Headnode Name</td>
-							<td>Cluster No.</td>
-							<td>Run</td>
-							<td>Stop</td>
-						</tr>
-						<?php
+
+				<li><input type="radio" name="paneSelector" value="2"> Run, stop Nodes</li>
+				<!-- Run config pane -->
+				<div class="run Pane">
+					<div class="ui segment run" style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
+						<table class="ui table segment">
+							<tr>
+								<td>Headnode Name</td>
+								<td>Cluster No.</td>
+								<td>Run</td>
+								<td>Stop</td>
+							</tr>
+							<?php
 							$query = "SELECT * FROM node WHERE role='1'";
 							$result = mysql_query($query) or die(mysql_error());
 							while($row = mysql_fetch_array($result)) {
@@ -137,47 +138,71 @@ include('getlist.php');
 								echo "<td>N/A</td>";
 								echo "</tr>";
 							}
-						?>
-					</table>
+							?>
+						</table>
+					</div>
 				</div>
-			</div>
-			<li><input type="radio" name="paneSelector" value="3"> Reboot, shutdown</li>
-			<!-- Reboot, shutdown config pane -->
-			<div class="reboot Pane">
-				<div class="ui segment reboot"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
-					<table class="ui inverted table segment">
-						<tr>
-							<td>Node Name</td>
-							<td>Reboot</td>
-							<td>Halt</td>
-						</tr>
-						<?php
-						for($i = 0 ; $i < sizeof($nodename) ; $i++){
-							echo "<tr>";
-							echo "<td>" . $nodename[$i] . "</td>";
-							echo "<td><a href='reboot.php?ip=" . urlencode($nodeip[$i]) . "'>Reboot</td>";
-							echo "<td><a href='halt.php?ip=" . urlencode($nodeip[$i]) . "'>Shutdown</td>";
-							echo "</td>";
-						}
-						?>
-					</table>
+				<li><input type="radio" name="paneSelector" value="3"> Reboot, shutdown Nodes</li>
+				<!-- Reboot, shutdown config pane -->
+				<div class="reboot Pane">
+					<div class="ui segment reboot"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
+						<table class="ui table segment">
+							<tr>
+								<td>Node Name</td>
+								<td>Reboot</td>
+								<td>Shutdown</td>
+							</tr>
+							<?php
+							for($i = 0 ; $i < sizeof($nodename) ; $i++){
+								echo "<tr>";
+								echo "<td>" . $nodename[$i] . "</td>";
+								echo "<td><a href='reboot.php?ip=" . urlencode($nodeip[$i]) . "'>Reboot</td>";
+								echo "<td><a href='halt.php?ip=" . urlencode($nodeip[$i]) . "'>Shutdown</td>";
+								echo "</td>";
+							}
+							?>
+						</table>
+					</div>
 				</div>
-
-			</div>
-			<li><input type="radio" name="paneSelector" value="4"> User Manage</li>
-			<!-- User manage pane -->
-			<div class="userManagement Pane">
-				<div class="ui segment userManagement"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
-					<h3><ins>User management</ins></h3>
-					<table class="ui inverted table segment">
-						<tr>
-							<td>UserID</td>
-							<td>Username</td>
-							<td>Password</td>
-							<td>Verification</td>
-						</tr>
-						<?php include('fetchaccount.php'); ?>
-					</table>
+				<li><input type="radio" name="paneSelector" value="4"> User Management</li>
+				<!-- User manage pane -->
+				<div class="userManagement Pane">
+					<div class="ui segment userManagement"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
+						<table class="ui table segment">
+							<tr>
+								<td>Nodename</td>
+								<td>Username</td>
+								<td>Password</td>
+								<td>Verification</td>
+							</tr>
+							<?php include('fetchaccount.php'); ?>
+						</table>
+					</div>
+				</div>
+				<li><input type="radio" name="paneSelector" value="5"> Resource Management</li>
+				<!-- Resource manage pane -->
+				<div class="resourceManagement Pane">
+					<div class="ui segment resourceManagement"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
+						<table class="ui table segment">
+							<tr>
+								<td>UserID</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<li><input type="radio" name="paneSelector" value="6"> Log</li>
+				<!-- Log pane -->
+				<div class="log Pane">
+					<div class="ui segment log"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
+						
+					</div>
+				</div>
+				<li><input type="radio" name="paneSelector" value="7"> Node Setup</li>
+				<!-- node setup pane -->
+				<div class="nodeSetup Pane">
+					<div class="ui segment nodeSetup"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
+						
+					</div>
 				</div>
 			</ul>
 		</div>
