@@ -87,7 +87,8 @@ include('getlist.php');
 							<!-- gen stop here -->
 						</div>
 						<input type="submit" value="Create" id="create" name="create">
-					</form>
+						<br>
+					</form>	
 				</div>
 
 				<li><input type="radio" name="paneSelector" value="1"> Setup IP address</li>
