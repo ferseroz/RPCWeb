@@ -25,7 +25,7 @@ include('getlist.php');
 				<a style="float:right; color:white" href="requestaccount.php">Request an account</a>
 			</form>
 			
-			<div class="ui ribbon label">Raspberry Pi CLuster</div>
+			<div class="ui ribbon label">Raspberry Pi Cluster</div>
 			<a href="index.php"><h2 style="color:white; margin-left:80px; font-size:35px"><i class="laptop big icon"></i><ins><em>Cluster For Education</em></ins></h2></a>
 			<h3 style="margin-left:80px;margin-top: -35px; padding-bottom:20px; color:#35332e;"><em>An appropriate cluster for study many types of knowledge.</em></h3>
 		</div>
@@ -90,6 +90,7 @@ include('getlist.php');
 						<br>
 					</form>	
 				</div>
+				<br>
 
 				<li><input type="radio" name="paneSelector" value="1"> Setup IP address</li>
 				<!-- IP config pane -->
@@ -116,6 +117,7 @@ include('getlist.php');
 						</form>
 					</div>
 				</div>
+				<br>
 
 				<li><input type="radio" name="paneSelector" value="2"> Run, stop Nodes</li>
 				<!-- Run config pane -->
@@ -143,6 +145,9 @@ include('getlist.php');
 						</table>
 					</div>
 				</div>
+				<br>
+
+
 				<li><input type="radio" name="paneSelector" value="3"> Reboot, shutdown Nodes</li>
 				<!-- Reboot, shutdown config pane -->
 				<div class="reboot Pane">
@@ -165,6 +170,8 @@ include('getlist.php');
 						</table>
 					</div>
 				</div>
+				<br>
+
 				<li><input type="radio" name="paneSelector" value="4"> User Management</li>
 				<!-- User manage pane -->
 				<div class="userManagement Pane">
@@ -180,6 +187,8 @@ include('getlist.php');
 						</table>
 					</div>
 				</div>
+				<br>
+				
 				<li><input type="radio" name="paneSelector" value="5"> Resource Management</li>
 				<!-- Resource manage pane -->
 				<div class="resourceManagement Pane">
@@ -191,6 +200,8 @@ include('getlist.php');
 						</table>
 					</div>
 				</div>
+				<br>
+
 				<li><input type="radio" name="paneSelector" value="6"> Log</li>
 				<!-- Log pane -->
 				<div class="log Pane">
@@ -198,6 +209,8 @@ include('getlist.php');
 						
 					</div>
 				</div>
+				<br>
+
 				<li><input type="radio" name="paneSelector" value="7"> Node Setup</li>
 				<!-- node setup pane -->
 				<div class="nodeSetup Pane">
