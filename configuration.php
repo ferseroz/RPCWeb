@@ -119,7 +119,7 @@ include('getlist.php');
 				</div>
 				<br>
 
-				<li><input type="radio" name="paneSelector" value="2"> Run, stop Nodes</li>
+				<li><input type="radio" name="paneSelector" value="2"> Run, stop Clusters</li>
 				<!-- Run config pane -->
 				<div class="run Pane">
 					<div class="ui segment run" style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">

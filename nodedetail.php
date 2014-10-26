@@ -34,7 +34,7 @@
 							<div class="ui tertiary inverted segment">
 								<h3 align="center" style="color:black">Node details</h3>
 							</div>
-							<table class="ui inverted table segment">
+							<table class="ui secondary inverted table segment">
 								<?php
 								include('getdetail.php');
 								?>

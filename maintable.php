@@ -30,6 +30,7 @@ include('config.php');
 			echo "<td> N/A </td>";
 			echo "<td> N/A </td>";
 			echo "<td>Unavailable</td>";
+			echo "<td>Unavailable</td>";
 		}
 	}
 ?>

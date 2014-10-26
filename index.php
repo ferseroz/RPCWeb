@@ -31,7 +31,7 @@
 		<div class = "statusTable">
 			<div class="ui segment">
 				<div class="ui tertiary inverted segment"><h3 align="center" style="color:black">The Status of each node in the cluster.</h3></div>
-				<table class="ui inverted table segment">
+				<table class="ui secondary inverted table segment">
 					<thead>
 						<tr>
 							<th>NODE NAME</th>
@@ -41,6 +41,7 @@
 							<!--<th>Detail</th>-->
 							<th>SSH</th>
 							<th>SSH with GUI</th>
+							<!--<th>SSH with GUI</th>-->
 						</tr>
 					</thead>
 					<tbody>
@@ -52,7 +53,7 @@
 			</div>
 		</div>
 		<div class ="uploadPane">
-			<div class="ui secondary inverted segment">
+			<div class="ui inverted segment">
 				<h3><ins>Upload File</ins> <i class="file outline icon"></i></h3>
 				<form action="uploadfile.php" method="POST" enctype="multipart/form-data">
 					<ul style="list-style-type:none">
