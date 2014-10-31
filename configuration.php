@@ -178,7 +178,7 @@ include('getlist.php');
 					<div class="ui segment userManagement"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
 						<table class="ui table segment">
 							<tr>
-								<td>Nodename</td>
+								<td>Node Name</td>
 								<td>Username</td>
 								<td>Password</td>
 								<td>Verification</td>
@@ -205,8 +205,20 @@ include('getlist.php');
 				<li><input type="radio" name="paneSelector" value="6"> Log</li>
 				<!-- Log pane -->
 				<div class="log Pane">
-					<div class="ui segment log"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
-						
+					<div class="ui segment log"  style="margin-left:25px; margin-top: 10px; margin-right: 1045px; margin-bottom:5px">
+						<form action="selectLog.php" id="logForm" style="" method="POST">
+							Select node:
+							<select name="node" form="logForm">
+								<?php
+								for($i = 0 ; $i < sizeof($nodeip) ; $i++){
+									echo "<option value='" . $nodeip[$i] . "'>" . $nodename[$i] . "</option>";
+								}
+								?>
+
+							</select>
+							<br>
+							<input type="submit" value="View Log" id="" name="logForm">
+						</form>
 					</div>
 				</div>
 				<br>
@@ -215,7 +227,13 @@ include('getlist.php');
 				<!-- node setup pane -->
 				<div class="nodeSetup Pane">
 					<div class="ui segment nodeSetup"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
-						
+						<table class="ui table segment">
+							<tr>
+								<td>Node Name</td>
+								<td>Restore</td>
+								<td>Setup</td>
+							</tr>
+						</table>
 					</div>
 				</div>
 			</ul>
