@@ -13,14 +13,24 @@
 	<div class = "main"style="clear:both" >
 
 		<div class = "headPane">
-			<button class="configButton" type="button"><a href="configuration.php">Configuration</a></button>
-			<form class = "loginForm" action="checklogin.php" method="POST">
-				Username: <input type="text" name="username" id="username">
-				Password: <input type="password" name="password" id="password">
-				<input type="submit" value="Login">
-				<br>
-				<a style="float:right; color:white" href="requestaccount.php">Request an account</a>
-			</form>
+			<?php
+			include('loggedin.php');
+			if(check()) {
+
+				echo "<p class='text-right'>You are logged in as: " . $_SESSION['username'] . "</p>";
+				echo "<button class='configButton' type='button'><a href='configuration.php'>Configuration</a></button>";
+			}
+			else {
+				echo "<form class = 'loginForm' action='checklogin.php' method='POST'>";
+				echo "Username: <input type='text' name='username' id='username'>";
+				echo "Password: <input type='password' name='password' id='password'>";
+				echo "<input type='submit' value='Login'>";
+				echo "<br>";
+				echo "<a style='float:right; color:white' href='requestaccount.php'>Request an account</a>";
+				echo "</form>";
+			}
+			?>
+			
 			
 			<div class="ui ribbon label">Raspberry Pi Cluster</div>
 			<a href="index.php"> <h2 style="color:white; margin-left:80px; font-size:35px"><i class="laptop big icon"></i><ins><em>Cluster For Education</em></ins></h2></a>

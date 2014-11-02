@@ -13,7 +13,7 @@
                 $_SESSION['class']=$row['class'];
                 setcookie('username', $_POST['username'], time()+60*60*24*365);
                 setcookie('password', $_POST['password'], time()+60*60*24*365);
-                header('Location: index.html');
+                header('Location: index.php');
             }
         else 
             {

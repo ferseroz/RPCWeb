@@ -7,11 +7,12 @@ $nodenumber = $_POST['numberHead'];
 $head = array();
 
 echo "Number of clusters: " . $nodenumber . "<br>";
-
+$counter = 1;
 if($nodenumber >= 1){
 	foreach($_POST['headnodes'] as $id){
 		$ip = $nodeip[$id-1];
-		$query = "UPDATE node SET cluster='$id', role='1' WHERE ip='$ip'";
+		$query = "UPDATE node SET cluster='$counter', role='1' WHERE ip='$ip'";
+		$counter++;
 		if(mysql_query($query)){
 			array_push($head, $nodeip[$id-1]);
 			echo "Head: " . $nodeip[$id-1] . " has been updated<br>";
