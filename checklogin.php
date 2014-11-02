@@ -8,7 +8,7 @@
         $result = mysql_query($query);
         if(mysql_num_rows($result))
             {   
-                $row = mysql_fetch_array($query);          
+                $row = mysql_fetch_array($result);          
                 $_SESSION['username']=$row['username'];
                 $_SESSION['class']=$row['class'];
                 setcookie('username', $_POST['username'], time()+60*60*24*365);
