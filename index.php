@@ -1,3 +1,4 @@
+
 <html>
 <head>
 	<title>Raspberry Pis Cluster</title>
@@ -8,6 +9,17 @@
 	<link rel="stylesheet" type="text/css" href="packaged/css/semantic.css">
 	
 </head>
+<?php
+	if($_SESSION['class'] = 1){
+		echo '<script type="text/javascript">'
+   , 'adminLogin();'
+   , 'alert("test");'
+   , '</script>'
+;
+	}
+
+?>
+
 <body>
 
 	<div class = "main"style="clear:both" >

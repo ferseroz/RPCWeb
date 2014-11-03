@@ -5,10 +5,8 @@ $(document).ready(function(){
 	$('.ui.three.wide.column.nodeConfig').remove();
 	var $panes = $('.Pane');
 	$panes.hide();
-	
-
+	//$(".loginForm").hide();
 	var previous;
-
 
 	$("input[name='fetchNode']").click(function(){
 
@@ -65,8 +63,14 @@ $(document).ready(function(){
 	});
 
 	});
+	function studentLogin(){
 
+	}
 
+	function adminLogin(){
+		$(".loginForm").hide();
+		alert("yoyooyoyoyo");
+	}
 
 
 });
