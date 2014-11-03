@@ -52,7 +52,7 @@
 
 		<div class = "statusTable">
 			<div class="ui segment">
-				<div class="ui tertiary inverted segment"><h3 align="center" style="color:black">The Status of each node in the cluster.</h3></div>
+				<div class="ui tertiary inverted segment"><h3 align="center" style="color:black">The Status of each node in the Raspberry Pi Cluster.</h3></div>
 				<table class="ui secondary inverted table segment">
 					<thead>
 						<tr>
