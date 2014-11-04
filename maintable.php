@@ -19,15 +19,15 @@ include('config.php');
 			echo "<tr>";
 			echo "<td><a href='nodedetail.php?ip=". urlencode($row['ip']) . "'>" . $row['nodename'] . "</a></td>";
 			echo "<td>" . $row['ip'] . "</td>";
-
-			echo "<td class='cpu cell'>" . $ssh->exec("top -b -n 10 -d.2 | grep 'Cpu' |  awk 'NR==3{ print($2)}'") . "</td>";
+			echo "<td><div id='cpu'>" . $ssh->exec("top -b -n 10 -d.2 | grep 'Cpu' |  awk 'NR==3{ print($2)}'") . "</div></td>";
 			echo "<td> N/A </td>";
 			echo "<td><a href='http://" . $row['ip'] . ":4200' target='_blank'>" . $row['ip'] . "</a></td>";
 		} else {
 			echo "<tr>";
 			echo "<td><a href='nodedetail.php?ip=". urlencode($row['ip']) . "'>" . $row['nodename'] . "</a></td>";
-			echo "<td>" . $row['ip'] . "</td>";
-			echo "<td> N/A </td>";
+			echo "<td>" . $row['ip'] . "<></td>";
+			echo "<td><div><div id='LoadPage' class='divPage'>" . $host . "</div><img alt='Progress' src='images/process.gif' id='imgProg'visible='false' /></div></td>";
+			//echo "<td> N/A </td>";
 			echo "<td> N/A </td>";
 			echo "<td>Unavailable</td>";
 			echo "<td>Unavailable</td>";

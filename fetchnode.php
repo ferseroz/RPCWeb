@@ -5,10 +5,16 @@ include('Net/SSH2.php');
 $query = "DELETE FROM node";
 $result = mysql_query($query) or die(mysql_error());
 
+if(!file_exists("logs/Login_" . date("Ymd") . ".txt")){
+        $flog = "logs/Login_" . date("Ymd") . ".txt";
+        $handle = fopen($flog, 'w');
+    }
+
 for($i = 2 ; $i < 10 ; $i++) {
 	$host = "192.168.1." . $i;
 	$output = array();
 	$result = null;
+	$nodestat;
 	exec("ping -c 1 -s 8 -W 200 " . $host, $output, $result);
 	
 	if($result == 0) {
@@ -18,8 +24,6 @@ for($i = 2 ; $i < 10 ; $i++) {
     	}
     	$nodename = explode("%0A", urlencode($ssh->exec("cat /etc/hostname")));
     	$hostname = $nodename[0];
-		echo $host . " is available OS: ";
-
 		$ttl = explode("ttl=", $output[1]);
 		//$os = "";
 		//switch($ttl[1]){
@@ -34,9 +38,16 @@ for($i = 2 ; $i < 10 ; $i++) {
 		if($inr){
 			echo $hostname . " has been added";
 		}
+		$nodestat = true;
 	} else {
+		$nodestat = false;
 		echo $host . " is unavailable<br>";
 	}
+	$log  = "Date: " . date("Y-m-d H:i:s") . PHP_EOL.
+		"Trying to fetching node IP: ".$host.PHP_EOL.
+        "Node Status: ".($nodestat==true?'Available':'Unavailable').PHP_EOL.
+        "-------------------------".PHP_EOL;
+        file_put_contents("logs/System_" . date("Ymd") . ".txt", $log, FILE_APPEND);
 }
 
 header('Location: index.php');

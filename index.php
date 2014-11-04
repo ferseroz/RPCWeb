@@ -5,6 +5,20 @@
 	<script src="js/jquery-2.1.1.min.js"></script>
 	<script src="js/script.js"></script>
 	<script src="packaged/javascript/semantic.js"></script>
+	<script type="text/javascript">
+        $(document).ready(function() {
+        	//$('#LoadPage').hide();
+        	var div = document.getElementById('ip');
+        	var ip = div.textContent;
+        	var url = "getcpu.php?ip=" + ip;
+            $("#imgProg").show();
+            $('#LoadPage').load(url, function() {
+                $("#imgProg").hide();
+            });
+           // $("#imgProg").hide();
+            //$("#LoadPage").show();
+        });
+    </script>
 	<link rel="stylesheet" type="text/css" href="css/web.css">
 	<link rel="stylesheet" type="text/css" href="packaged/css/semantic.css">
 	
