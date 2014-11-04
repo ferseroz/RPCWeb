@@ -1,0 +1,11 @@
+IP: ::1 - November 5, 2014, 6:32 am
+Trying to start Hadoop
+Head: n1 IP: 192.168.1.4
+Slave: n2 IP: 192.168.1.2
+-------------------------
+IP: ::1 - November 5, 2014, 6:33 am
+Trying to start Hadoop
+Head: n1 IP: 192.168.1.4
+Slave: n2 IP: 192.168.1.2
+Slave: n5 IP: 192.168.1.6
+-------------------------
