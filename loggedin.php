@@ -1,6 +1,6 @@
 <?php
 include('config.php');
-session_start();
+//session_start();
 function check() {
     if (isset($_COOKIE["username"])) {
         $username = $_COOKIE["username"];

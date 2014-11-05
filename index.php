@@ -43,7 +43,12 @@
 			include('loggedin.php');
 			if(check()) {
 				echo "<button class='configButton' type='button'><a href='configuration.php'>Configuration</a></button>";
+<<<<<<< HEAD
 				echo "<p class='text-right'>You are logged in as: " . $_SESSION['username'] . "</p>";
+=======
+				echo "<p class='loggedin'>You are logged in as: " . $_SESSION['username'] . "</p>";
+				
+>>>>>>> FETCH_HEAD
 			}
 			else {
 				echo "<form class = 'loginForm' action='checklogin.php' method='POST'>";
