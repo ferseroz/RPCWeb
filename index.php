@@ -42,9 +42,9 @@
 			<?php
 			include('loggedin.php');
 			if(check()) {
-
-				echo "<p class='text-right'>You are logged in as: " . $_SESSION['username'] . "</p>";
 				echo "<button class='configButton' type='button'><a href='configuration.php'>Configuration</a></button>";
+				echo "<p class='loggedin'>You are logged in as: " . $_SESSION['username'] . "</p>";
+				
 			}
 			else {
 				echo "<form class = 'loginForm' action='checklogin.php' method='POST'>";
