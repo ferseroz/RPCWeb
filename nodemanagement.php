@@ -2,6 +2,7 @@
 include('config.php');
 include('getlist.php');
 include('Net/SFTP.php');
+include('Net/SSH.php');
 
 $nodenumber = $_POST['numberHead'];
 $head = array();
@@ -36,9 +37,8 @@ if($nodenumber >= 1){
 }
 
 function configHadoop($id, $slaveid){
-	include('getlist.php');
+	//include('getlist.php');
 	
-
 	$ip = $nodeip[$id-1];
 	$hostname = $nodename[$id-1];
 	
@@ -185,6 +185,26 @@ function configHadoop($id, $slaveid){
 	for($i = 0 ; $i < sizeof($sftpslaves) ; $i++) {
 			echo $sftpslaves[$i]->put("/etc/hosts", "upload/hosts", NET_SFTP_LOCAL_FILE);
 	}
+
+	//"java edu.rit.pj2.tracker.Tracker tracker=$ip"
+	/*
+	$ssh = new Net_SSH2($nodeip[$slaveid[$i]-1]);
+	if (!$ssh->login($SSH_USERNAME, $SSH_PASSWORD)) {
+		exit('Login Failed');
+	}
+	echo $ssh->exec("java edu.rit.pj2.tracker.Tracker tracker=$ip");
+
+	for($i = 0 ; $i < sizeof($slaveid) ; $i++) {
+			// "java edu.rit.pj2.tracker.Launcher tracker=$nodeip[$slaveid[$i]-1]"
+		$ssh = new Net_SSH2($nodeip[$slaveid[$i]-1]);
+		if (!$ssh->login($SSH_USERNAME, $SSH_PASSWORD)) {
+			exit('Login Failed');
+			echo $ssh->exec("java edu.rit.pj2.tracker.Launcher tracker=$nodeip[$slaveid[$i]-1]");
+		}
+	}
+
+	
+	*/
 
 	header("Location: configuration.php");
 }

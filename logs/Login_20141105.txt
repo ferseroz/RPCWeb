@@ -18,3 +18,8 @@ Login Status: Success
 Username: test
 Password: test
 -------------------------
+IP: ::1 - November 5, 2014, 4:32 pm
+Login Status: Success
+Username: test
+Password: test
+-------------------------
