@@ -6,31 +6,40 @@
 	<script src="js/script.js"></script>
 	<script src="packaged/javascript/semantic.js"></script>
 	<script type="text/javascript">
-        $(document).ready(function() {
+	$(document).ready(function() {
         	//$('#LoadPage').hide();
         	var div = document.getElementById('ip');
         	var ip = div.textContent;
         	var url = "getcpu.php?ip=" + ip;
-            $("#imgProg").show();
-            $('#LoadPage').load(url, function() {
-                $("#imgProg").hide();
-            });
+        	$("#imgProg").show();
+        	$('#LoadPage').load(url, function() {
+        		$("#imgProg").hide();
+        	});
            // $("#imgProg").hide();
             //$("#LoadPage").show();
         });
-    </script>
+	</script>
+	<script type="text/javascript">
+	function InputChecker()
+	{
+	    if(document.getElementById('username').value == '' || document.getElementById('password').value == '')  { // not empty
+	        alert("Please input both username and password"); // Pop an alert
+	        return false; // Prevent form from submitting
+	    }
+	}
+	</script>
 	<link rel="stylesheet" type="text/css" href="css/web.css">
 	<link rel="stylesheet" type="text/css" href="packaged/css/semantic.css">
 	
 </head>
 <?php
-	if($_SESSION['class'] = 1){
-		echo '<script type="text/javascript">'
-   , 'adminLogin();'
-   , 'alert("test");'
-   , '</script>'
-;
-	}
+if($_SESSION['class'] = 1){
+	echo '<script type="text/javascript">'
+	, 'adminLogin();'
+	, 'alert("test");'
+	, '</script>'
+	;
+}
 
 ?>
 
@@ -41,17 +50,17 @@
 		<div class = "headPane">
 			<?php
 			include('loggedin.php');
-			if(check()) {
+			if(check() && $_SESSION['class'] == 1) {
+				echo "<button class='configButton' type='button'><a href='logout.php'>Logout</a></button>";
 				echo "<button class='configButton' type='button'><a href='configuration.php'>Configuration</a></button>";
-<<<<<<< HEAD
-				echo "<p class='text-right'>You are logged in as: " . $_SESSION['username'] . "</p>";
-=======
 				echo "<p class='loggedin'>You are logged in as: " . $_SESSION['username'] . "</p>";
-				
->>>>>>> FETCH_HEAD
+			} 
+			else if(check() && $_SESSION['class'] == 0){
+				echo "<button class='configButton' type='button'><a href='logout.php'>Logout</a></button>";
+				echo "<p class='loggedin'>You are logged in as: " . $_SESSION['username'] . "</p>";
 			}
 			else {
-				echo "<form class = 'loginForm' action='checklogin.php' method='POST'>";
+				echo "<form class = 'loginForm' action='checklogin.php' onsubmit='InputChecker()' method='POST'>";
 				echo "Username: <input type='text' name='username' id='username'>";
 				echo "Password: <input type='password' name='password' id='password'>";
 				echo "<input type='submit' value='Login'>";
@@ -85,9 +94,9 @@
 						</tr>
 					</thead>
 					<tbody>
-					<?php
-					include('maintable.php');
-					?>
+						<?php
+						include('maintable.php');
+						?>
 					</tbody>
 				</table>
 			</div>

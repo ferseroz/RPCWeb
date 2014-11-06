@@ -49,6 +49,4 @@ for($i = 2 ; $i < 10 ; $i++) {
         "-------------------------".PHP_EOL;
         file_put_contents("logs/System_" . date("Ymd") . ".txt", $log, FILE_APPEND);
 }
-
-header('Location: index.php');
 ?>

@@ -1,5 +1,12 @@
 <?php
 include('getlist.php');
+include('loggedin.php');
+if(!check() || $_SESSION['class'] != 1){
+	echo "<script type='text/javascript'>";
+	echo "alert('You have no permission to access this page!');";
+	echo "window.location = 'index.php'";
+	echo "</script>";
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,6 +15,17 @@ include('getlist.php');
 	<script src="js/jquery-2.1.1.min.js"></script>
 	<script src="js/script.js"></script>
 	<script src="packaged/javascript/semantic.js"></script>
+	<script type="text/javascript">
+	
+	$(document).ready(function() {
+		$("#fetchNode").click(function () {
+			$("#imgProg").show();
+			$('#LoadPage').load("fetchnode.php", function() {
+				location.reload();
+			});
+		});
+	});
+	</script>
 	<link rel="stylesheet" type="text/css" href="css/web.css">
 	<link rel="stylesheet" type="text/css" href="packaged/css/semantic.css">
 </head>
@@ -16,14 +34,22 @@ include('getlist.php');
 	<div class = "main"style="clear:both" >
 
 		<div class = "headPane">
-			<button class="configButton" type="button"><a href="configuration.php">Configuration</a></button>
-			<form class = "loginForm" action="checklogin.php" method="POST">
-				Username: <input type="text" name="username" id="username">
-				Password: <input type="password" name="password" id="password">
-				<input type="submit" value="Login">
-				<br>
-				<a style="float:right; color:white" href="requestaccount.php">Request an account</a>
-			</form>
+			<?php
+			if(check() && $_SESSION['class'] == 1) {
+				echo "<button class='configButton' type='button'><a href='logout.php'>Logout</a></button>";
+				echo "<button class='configButton' type='button'><a href='configuration.php'>Configuration</a></button>";
+				echo "<p class='loggedin'>You are logged in as: " . $_SESSION['username'] . "</p>";
+			} 
+			else {
+				echo "<form class = 'loginForm' action='checklogin.php' onsubmit='InputChecker()' method='POST'>";
+				echo "Username: <input type='text' name='username' id='username'>";
+				echo "Password: <input type='password' name='password' id='password'>";
+				echo "<input type='submit' value='Login'>";
+				echo "<br>";
+				echo "<a style='float:right; color:white' href='requestaccount.php'>Request an account</a>";
+				echo "</form>";
+			}
+			?>
 			
 			<div class="ui ribbon label">Raspberry Pi Cluster</div>
 			<a href="index.php"><h2 style="color:white; margin-left:80px; font-size:35px"><i class="laptop big icon"></i><ins><em>Cluster For Education</em></ins></h2></a>
@@ -40,8 +66,8 @@ include('getlist.php');
 				<!-- Node config pane -->
 				<div class= "nodeConfig Pane">
 					<br>
-					<input type="submit" value="Fetch Node" id="create" name="fetchNode" style="margin-left:30px">
-
+					<input type="submit" value="Fetch Node" id="fetchNode" name="fetchNode" style="margin-left:30px">
+					<div><div id='LoadPage' class='divPage'></div><img alt='Progress' src='images/process.gif' id='imgProg' style="display:none" /></div>
 					<form action="nodemanagement.php" id="nodeForm" style="margin-left:30px;" method="POST">
 						<!-- select how many node will be head node -->
 						<br>
@@ -177,13 +203,23 @@ include('getlist.php');
 				<div class="userManagement Pane">
 					<div class="ui segment userManagement"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
 						<table class="ui table segment">
+							Pending Accounts<br>
 							<tr>
-								<td>Node Name</td>
+								<td>UserID</td>
 								<td>Username</td>
 								<td>Password</td>
 								<td>Verification</td>
 							</tr>
-							<?php include('fetchaccount.php'); ?>
+							<?php include('fetchaccount.php'); pendingAccount(); ?>
+						</table><br><br>
+						<table class="ui table segment">
+							Activated Accounts<br>
+							<tr>
+								<td>UserID</td>
+								<td>Username</td>
+								<td>Password</td>
+							</tr>
+							<?php activatedAccount();?>
 						</table>
 					</div>
 				</div>
@@ -202,16 +238,25 @@ include('getlist.php');
 				</div>
 				<br>
 
-				<li><input type="radio" name="paneSelector" value="6"> Log</li>
+				<li><input type="radio" name="paneSelector" value="6"> Logs</li>
 				<!-- Log pane -->
 				<div class="log Pane">
 					<div class="ui segment log"  style="margin-left:25px; margin-top: 10px; margin-right: 1045px; margin-bottom:5px">
-						<form action="selectLog.php" id="logForm" style="" method="POST">
-							Select node:
-							<select name="node" form="logForm">
+						<form action="fetchfile.php" id="logForm" style="" method="POST">
+							Select Log:
+							<select name="log" id="log" form="logForm">
 								<?php
-								for($i = 0 ; $i < sizeof($nodeip) ; $i++){
-									echo "<option value='" . $nodeip[$i] . "'>" . $nodename[$i] . "</option>";
+								if ($handle = opendir('logs/')) {
+
+									while (false !== ($entry = readdir($handle))) {
+
+										if ($entry != "." && $entry != ".." && $entry != ".DS_Store") {
+
+											echo "<option value='" . $entry . "'>" . $entry . "</option>";
+										}
+									}
+
+									closedir($handle);
 								}
 								?>
 
