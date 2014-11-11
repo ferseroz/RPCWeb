@@ -22,7 +22,7 @@ echo "network 192.168.1.0<br>";
 echo "broadcast 192.168.1.255";
 echo "dns-nameservers $dns<br>";
 */
-$file = fopen("upload/interfaces", "w") or die("Unable to create file");
+$file = fopen("upload/System/interfaces", "w") or die("Unable to create file");
 $content = "auto lo\n";
 fwrite($file, $content);
 $content = "iface lo inet loopback\n\n";
@@ -58,7 +58,7 @@ if (!$sftp->login($SSH_USERNAME, $SSH_PASSWORD)) {
 	exit('Login Failed');
 }
 
-if($sftp->put("/etc/network/interfaces", "upload/interfaces", NET_SFTP_LOCAL_FILE)) {
+if($sftp->put("/etc/network/interfaces", "upload/System/interfaces", NET_SFTP_LOCAL_FILE)) {
 	$ssh = new Net_SSH2($node);
 	if (!$ssh->login($SSH_USERNAME, $SSH_PASSWORD)) {
 		exit('Login Failed');

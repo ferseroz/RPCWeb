@@ -54,7 +54,7 @@ function configHadoop($id, $slaveid){
 		}
 	}
 
-	$file = fopen("upload/core-site.xml", "w") or die("Unable to create file");
+	$file = fopen("upload/System/core-site.xml", "w") or die("Unable to create file");
 	$content = "<?xml version=\"1.0\"?>\n";
 	fwrite($file, $content);
 	$content = "<?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>\n";
@@ -81,13 +81,13 @@ function configHadoop($id, $slaveid){
 	fwrite($file, $content);
 	fclose($file);
 
-	echo $sftp->put("/usr/local/hadoop/conf/core-site.xml", "upload/core-site.xml", NET_SFTP_LOCAL_FILE);
+	echo $sftp->put("/usr/local/hadoop/conf/core-site.xml", "upload/System/core-site.xml", NET_SFTP_LOCAL_FILE);
 
 	for($i = 0 ; $i < sizeof($sftpslaves) ; $i++) {
-			echo $sftpslaves[$i]->put("/usr/local/hadoop/conf/core-site.xml", "upload/core-site.xml", NET_SFTP_LOCAL_FILE);
+			echo $sftpslaves[$i]->put("/usr/local/hadoop/conf/core-site.xml", "upload/System/core-site.xml", NET_SFTP_LOCAL_FILE);
 	}
 	
-	$file = fopen("upload/mapred-site.xml", "w") or die("Unable to create file");
+	$file = fopen("upload/System/mapred-site.xml", "w") or die("Unable to create file");
 	$content = "<?xml version=\"1.0\"?>\n";
 	fwrite($file, $content);
 	$content = "<?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>\n";
@@ -106,12 +106,12 @@ function configHadoop($id, $slaveid){
 	fwrite($file, $content);
 	fclose($file);
 
-	echo $sftp->put("/usr/local/hadoop/conf/mapred-site.xml", "upload/mapred-site.xml", NET_SFTP_LOCAL_FILE);
+	echo $sftp->put("/usr/local/hadoop/conf/mapred-site.xml", "upload/System/mapred-site.xml", NET_SFTP_LOCAL_FILE);
 	for($i = 0 ; $i < sizeof($sftpslaves) ; $i++) {
-		echo $sftpslaves[$i]->put("/usr/local/hadoop/conf/mapred-site.xml", "upload/mapred-site.xml", NET_SFTP_LOCAL_FILE);
+		echo $sftpslaves[$i]->put("/usr/local/hadoop/conf/mapred-site.xml", "upload/System/mapred-site.xml", NET_SFTP_LOCAL_FILE);
 	}
 
-	$file = fopen("upload/hdfs-site.xml", "w") or die("Unable to create file");
+	$file = fopen("upload/System/hdfs-site.xml", "w") or die("Unable to create file");
 	$content = "<?xml version=\"1.0\"?>\n";
 	fwrite($file, $content);
 	$content = "<?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>\n";
@@ -130,20 +130,20 @@ function configHadoop($id, $slaveid){
 	fwrite($file, $content);
 	fclose($file);
 
-	echo $sftp->put("/usr/local/hadoop/conf/hdfs-site.xml", "upload/hdfs-site.xml", NET_SFTP_LOCAL_FILE);
+	echo $sftp->put("/usr/local/hadoop/conf/hdfs-site.xml", "upload/System/hdfs-site.xml", NET_SFTP_LOCAL_FILE);
 	for($i = 0 ; $i < sizeof($sftpslaves) ; $i++) {
-			echo $sftpslaves[$i]->put("/usr/local/hadoop/conf/hdfs-site.xml", "upload/hdfs-site.xml", NET_SFTP_LOCAL_FILE);
+			echo $sftpslaves[$i]->put("/usr/local/hadoop/conf/hdfs-site.xml", "upload/System/hdfs-site.xml", NET_SFTP_LOCAL_FILE);
 	}
 
-	$file = fopen("upload/masters", "w") or die("Unable to create file");
+	$file = fopen("upload/System/masters", "w") or die("Unable to create file");
 	$content = $nodeip[$id-1];
 	fwrite($file, $content);
 	fclose($file);
 
-	echo $sftp->put("/usr/local/hadoop/conf/masters", "upload/masters", NET_SFTP_LOCAL_FILE);
+	echo $sftp->put("/usr/local/hadoop/conf/masters", "upload/System/masters", NET_SFTP_LOCAL_FILE);
 	
 
-	$file = fopen("upload/slaves", "w") or die("Unable to create file");
+	$file = fopen("upload/System/slaves", "w") or die("Unable to create file");
 	$content = $ip . "\n";
 	fwrite($file, $content);
 	for($i = 0 ; $i < sizeof($slaveid) ; $i++) {
@@ -152,9 +152,9 @@ function configHadoop($id, $slaveid){
 	}
 	fclose($file);
 
-	echo $sftp->put("/usr/local/hadoop/conf/slaves", "upload/slaves", NET_SFTP_LOCAL_FILE);
+	echo $sftp->put("/usr/local/hadoop/conf/slaves", "upload/System/slaves", NET_SFTP_LOCAL_FILE);
 	
-	$file = fopen("upload/hosts", "w") or die("Unable to create file");
+	$file = fopen("upload/System/hosts", "w") or die("Unable to create file");
 	/* For VMWare Ubuntu 14.04 */
 	//$content = "127.0.0.1\tlocalhost\n";
 	//fwrite($file, $content);
@@ -181,9 +181,9 @@ function configHadoop($id, $slaveid){
 	}
 	fclose($file);
 
-	echo $sftp->put("/etc/hosts", "upload/hosts", NET_SFTP_LOCAL_FILE);
+	echo $sftp->put("/etc/hosts", "upload/System/hosts", NET_SFTP_LOCAL_FILE);
 	for($i = 0 ; $i < sizeof($sftpslaves) ; $i++) {
-			echo $sftpslaves[$i]->put("/etc/hosts", "upload/hosts", NET_SFTP_LOCAL_FILE);
+			echo $sftpslaves[$i]->put("/etc/hosts", "upload/System/hosts", NET_SFTP_LOCAL_FILE);
 	}
 
 	//"java edu.rit.pj2.tracker.Tracker tracker=$ip"
@@ -199,8 +199,8 @@ function configHadoop($id, $slaveid){
 		$ssh = new Net_SSH2($nodeip[$slaveid[$i]-1]);
 		if (!$ssh->login($SSH_USERNAME, $SSH_PASSWORD)) {
 			exit('Login Failed');
-			echo $ssh->exec("java edu.rit.pj2.tracker.Launcher tracker=$nodeip[$slaveid[$i]-1]");
 		}
+		echo $ssh->exec("java edu.rit.pj2.tracker.Launcher tracker=$nodeip[$slaveid[$i]-1]");
 	}
 
 	
