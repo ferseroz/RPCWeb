@@ -10,15 +10,20 @@
 	for($i = 0 ; $i < sizeof($nodeip) ; $i++){
 		echo "<script type='text/javascript'>" . PHP_EOL;
 		echo "$(document).ready(function() {". PHP_EOL;
-        	//$('#LoadPage').hide();
-
     	echo "var url = 'getcpu.php?ip=' + " . "'" . $nodeip[$i] . "'" . ";". PHP_EOL;
         echo "$('#img_" . $nodename[$i] . "').show();". PHP_EOL;
         echo "$('#" . $nodename[$i] . "').load(url, function() {". PHP_EOL;
         echo "$('#img_" . $nodename[$i] . "').hide();". PHP_EOL;
         echo "});". PHP_EOL;
-           // $("#imgProg").hide();
-            //$("#LoadPage").show();
+        echo "});". PHP_EOL;
+		echo "</script>". PHP_EOL;
+		echo "<script type='text/javascript'>" . PHP_EOL;
+		echo "$(document).ready(function() {". PHP_EOL;
+    	echo "var url = 'ssh.php?ip=' + " . "'" . $nodeip[$i] . "'" . ";". PHP_EOL;
+        echo "$('#sshim_" . $nodename[$i] . "').show();". PHP_EOL;
+        echo "$('#ssh_" . $nodename[$i] . "').load(url, function() {". PHP_EOL;
+        echo "$('#sshim_" . $nodename[$i] . "').hide();". PHP_EOL;
+        echo "});". PHP_EOL;
         echo "});". PHP_EOL;
 		echo "</script>". PHP_EOL;
 	}

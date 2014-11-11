@@ -6,24 +6,29 @@ $query = "DELETE FROM node";
 $result = mysql_query($query) or die(mysql_error());
 
 if(!file_exists("logs/Login_" . date("Ymd") . ".txt")){
-        $flog = "logs/Login_" . date("Ymd") . ".txt";
-        $handle = fopen($flog, 'w');
-    }
+	$flog = "logs/Login_" . date("Ymd") . ".txt";
+	$handle = fopen($flog, 'w');
+}
 
-for($i = 2 ; $i < 10 ; $i++) {
+for($i = 5 ; $i < 6 ; $i++) {
 	$host = "192.168.1." . $i;
 	$output = array();
 	$result = null;
 	$nodestat;
-	exec("ping -c 1 -s 8 -W 200 " . $host, $output, $result);
+	// For Server on Windows
+	exec("ping -n 4 -w 1000 " . $host, $output, $result);
+	// For Server on Mac/Linux
+	//exec("ping -c 1 -s 4 -W 2000 " . $host, $output, $result);
+	//exec("ping " . $host, $output, $result);
+	echo $result . PHP_EOL;
 	
 	if($result == 0) {
 		$ssh = new Net_SSH2($host);
 		if (!$ssh->login($SSH_USERNAME, $SSH_PASSWORD)) {
-    		exit('Login Failed');
-    	}
-    	$nodename = explode("%0A", urlencode($ssh->exec("cat /etc/hostname")));
-    	$hostname = $nodename[0];
+			exit('Login Failed');
+		}
+		$nodename = explode("%0A", urlencode($ssh->exec("cat /etc/hostname")));
+		$hostname = $nodename[0];
 		$ttl = explode("ttl=", $output[1]);
 		//$os = "";
 		//switch($ttl[1]){
@@ -44,9 +49,9 @@ for($i = 2 ; $i < 10 ; $i++) {
 		echo $host . " is unavailable<br>";
 	}
 	$log  = "Date: " . date("Y-m-d H:i:s") . PHP_EOL.
-		"Trying to fetching node IP: ".$host.PHP_EOL.
-        "Node Status: ".($nodestat==true?'Available':'Unavailable').PHP_EOL.
-        "-------------------------".PHP_EOL;
-        file_put_contents("logs/System_" . date("Ymd") . ".txt", $log, FILE_APPEND);
+	"Trying to fetching node IP: ".$host.PHP_EOL.
+	"Node Status: ".($nodestat==true?'Available':'Unavailable').PHP_EOL.
+	"-------------------------".PHP_EOL;
+	file_put_contents("logs/System_" . date("Ymd") . ".txt", $log, FILE_APPEND);
 }
 ?>
