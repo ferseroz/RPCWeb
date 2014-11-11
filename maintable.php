@@ -26,7 +26,7 @@ include('config.php');
 			echo "<tr>";
 			echo "<td><a href='nodedetail.php?ip=". urlencode($row['ip']) . "'>" . $row['nodename'] . "</a></td>";
 			echo "<td>" . $row['ip'] . "</td>";
-			echo "<td><div><div id='LoadPage' class='divPage'>" . $host . "</div><img alt='Progress' src='images/process.gif' id='imgProg'visible='false' /></div></td>";
+			echo "<td><div><div id='" . $row['nodename'] ."' class='cpu'></div><img alt='Progress' src='images/process.gif' id='img_" . $row['nodename'] ."'visible='false' /></div></td>";
 			//echo "<td> N/A </td>";
 			echo "<td> N/A </td>";
 			echo "<td>Unavailable</td>";

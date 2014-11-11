@@ -5,20 +5,24 @@
 	<script src="js/jquery-2.1.1.min.js"></script>
 	<script src="js/script.js"></script>
 	<script src="packaged/javascript/semantic.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function() {
+	<?php
+	include('getlist.php');
+	for($i = 0 ; $i < sizeof($nodeip) ; $i++){
+		echo "<script type='text/javascript'>";
+		echo "$(document).ready(function() {";
         	//$('#LoadPage').hide();
-        	var div = document.getElementById('ip');
-        	var ip = div.textContent;
-        	var url = "getcpu.php?ip=" + ip;
-        	$("#imgProg").show();
-        	$('#LoadPage').load(url, function() {
-        		$("#imgProg").hide();
-        	});
+
+    	echo "var url = 'getcpu.php?ip='" . $nodeip[$i]. ";";
+        echo "$('#img_" . $nodename[$i] . "').show()";
+        echo "$('#" . $nodename[$i] . "').load(url, function() {";
+        echo "$('#img_" . $nodename[$i] . "').hide()";
+        echo "});";
            // $("#imgProg").hide();
             //$("#LoadPage").show();
-        });
-	</script>
+        //echo "});";
+		echo "</script>";
+	}
+	?>
 	<script type="text/javascript">
 	function InputChecker()
 	{
@@ -32,17 +36,6 @@
 	<link rel="stylesheet" type="text/css" href="packaged/css/semantic.css">
 	
 </head>
-<?php
-if($_SESSION['class'] = 1){
-	echo '<script type="text/javascript">'
-	, 'adminLogin();'
-	, 'alert("test");'
-	, '</script>'
-	;
-}
-
-?>
-
 <body>
 
 	<div class = "main"style="clear:both" >

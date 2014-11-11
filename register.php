@@ -9,7 +9,6 @@ if(mysql_num_rows($result)>0){
 	echo "<script type='text/javascript'>";
 	echo "alert('Username is already exist!');";
 	echo "window.location = 'requestAccount.php'";
-	//echo "return false;";
 	echo "</script>";
 } else {
 	$query = "INSERT INTO user(username, password) VALUES('$username', '$password')";
