@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Raspberry Pis Cluster</title>
+	<script src="js/jquery-2.1.1.min.js"></script>
 	<script src="js/script.js"></script>
 	<script src="packaged/javascript/semantic.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/web.css">
