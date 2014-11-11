@@ -19,16 +19,35 @@ include('config.php');
 			echo "<tr>";
 			echo "<td><a href='nodedetail.php?ip=". urlencode($row['ip']) . "'>" . $row['nodename'] . "</a></td>";
 			echo "<td>" . $row['ip'] . "</td>";
-			echo "<td><div id='cpu'>" . $ssh->exec("top -b -n 10 -d.2 | grep 'Cpu' |  awk 'NR==3{ print($2)}'") . "</div></td>";
+			echo "<td><div><div id='" . $row['nodename'] ."' class='cpu'></div><img alt='Progress' src='images/process.gif' id='img_" . $row['nodename'] ."'visible='false' /></div></td>";
+			switch($row['work']){
+				case '0':
+					echo "<td> Non-working </td>"; break;
+				case '1':
+					echo "<td> Parallel Programming </td>"; break;
+				case '2':
+					echo "<td> Hadoop </td>"; break;
+				case '3':
+					echo "<td> Parallel Programming & Haddop </td>"; break;
+			}
 			echo "<td> N/A </td>";
 			echo "<td><a href='http://" . $row['ip'] . ":4200' target='_blank'>" . $row['ip'] . "</a></td>";
 		} else {
 			echo "<tr>";
 			echo "<td><a href='nodedetail.php?ip=". urlencode($row['ip']) . "'>" . $row['nodename'] . "</a></td>";
 			echo "<td>" . $row['ip'] . "</td>";
-			echo "<td><div><div id='" . $row['nodename'] ."' class='cpu'></div><img alt='Progress' src='images/process.gif' id='img_" . $row['nodename'] ."'visible='false' /></div></td>";
+			echo "<td>Unavailable</td>";
 			//echo "<td> N/A </td>";
-			echo "<td> N/A </td>";
+			switch($row['work']){
+				case '0':
+					echo "<td> Non-working </td>"; break;
+				case '1':
+					echo "<td> Parallel Programming </td>"; break;
+				case '2':
+					echo "<td> Hadoop </td>"; break;
+				case '3':
+					echo "<td> Parallel Programming & Haddop </td>"; break;
+			}
 			echo "<td>Unavailable</td>";
 			echo "<td>Unavailable</td>";
 		}

@@ -5,7 +5,7 @@
     $password=$_POST['password'];
     $loginstat;
 
-        $query = "SELECT * FROM User WHERE username='$username' AND password='$password'";
+        $query = "SELECT * FROM User WHERE username='$username' AND password='$password' AND activation='1'";
         $result = mysql_query($query);
         if(mysql_num_rows($result))
             {   

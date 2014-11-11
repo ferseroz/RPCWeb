@@ -12,14 +12,25 @@
 	<div class = "main"style="clear:both" >
 
 		<div class = "headPane">
-			<button class="configButton" type="button"><a href="configuration.php">Configuration</a></button>
-			<form class = "loginForm" action="checklogin.php" method="POST">
-				Username: <input type="text" name="username" id="username">
-				Password: <input type="password" name="password" id="password">
-				<input type="submit" value="Login">
-				<br>
-				<a style="float:right; color:white"href="requestaccount.php">Request an account</a>
-			</form>
+			<?php
+			include('loggedin.php');
+			if(check() && $_SESSION['class'] == 1) {
+				echo "<button class='configButton' type='button'><a href='logout.php'>Logout</a></button>";
+				echo "<button class='configButton' type='button'><a href='configuration.php'>Configuration</a></button>";
+				echo "<p class='loggedin'>You are logged in as: " . $_SESSION['username'] . "</p>";
+			} 
+			else if(check() && $_SESSION['class'] == 0){
+				echo "<button class='configButton' type='button'><a href='logout.php'>Logout</a></button>";
+				echo "<p class='loggedin'>You are logged in as: " . $_SESSION['username'] . "</p>";
+			}
+			else {
+				echo "<script language='javascript' type='text/javascript'>";
+				echo "alert('You have not logged in!');";
+				echo "window.location = 'index.php';";
+				echo "</script>";
+				//header("location: index.php");
+			}
+			?>
 			
 			<div class="ui ribbon label">Raspberry Pi CLuster</div>
 			<a href="index.php"><h2 style="color:white; margin-left:80px; font-size:35px"><i class="laptop big icon"></i><ins><em>Cluster For Education</em></ins></h2></a>
@@ -47,14 +58,24 @@
 				</div>
 
 				<div class="column" style="background-color:#b2d0cc">
-					<div class="frameNode">
-						<div class="ui segment" style="padding:5px">
-							<div class= "frame" style="float:center">
-								<iframe src="http://www.w3schools.com/html/html_iframe.asp" frameborder="0" width="800px" height="450px">
-								</iframe>
-							</div>
-						</div>
-					</div>
+					<?php
+					switch($row['work']){
+						case 0:
+							echo "Not Working"; break;
+						case 1:
+							echo "Parallel"; break;
+						case 2:
+							echo "Hadoop"; break;
+						case 3:
+							echo "both"; break;
+					}
+
+					//echo "<div class='frameNode'>";
+					//echo "<div class='ui segment' style='padding:5px'>";
+					//echo "<div class= 'frame' style='float:center'>";
+					//echo "<iframe src='http://www.google.com' frameborder='0' width='800px' height='450px'>";
+					//echo "</iframe></div></div></div>";
+					?>
 				</div>
 			</div>
 		</div>

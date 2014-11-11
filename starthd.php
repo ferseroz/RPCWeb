@@ -50,5 +50,14 @@ while($row = mysql_fetch_array($result)){
 $log = $log . "-------------------------".PHP_EOL;
 file_put_contents("logs/rpi_" . date("Ymd") . ".txt", $log, FILE_APPEND);
 
+if($row['work'] == 0){
+	$query2 = "UPDATE user SET work=2 WHERE ip='$ip'";
+	mysql_query($query2);
+} else {
+	$query2 = "UPDATE user SET work=3 WHERE ip='$ip'";
+	mysql_query($query2);
+}
+
+
 header('Location: configuration.php');
 ?>

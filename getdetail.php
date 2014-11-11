@@ -24,13 +24,31 @@ $query = "SELECT * FROM node WHERE ip='$ip'";
 				echo "<tr><th>CPU</th>";
 				echo "<td>" . $ssh->exec("top -b -n 10 -d.2 | grep 'Cpu' |  awk 'NR==3{ print($2)}'") . "</td></tr>";
 				echo "<tr><th>WORK</th>";
-				echo "<td>N/A</td></tr>";
+				switch($row['work']){
+				case '0':
+					echo "<td> No Assigned Task </td>"; break;
+				case '1':
+					echo "<td> Parallel Programming </td>"; break;
+				case '2':
+					echo "<td> Hadoop </td>"; break;
+				case '3':
+					echo "<td> Parallel Programming & Haddop </td>"; break;
+			}
 			}
 		} else {
 				echo "<tr><th>CPU</th>";
-				echo "<td>N/A</td></tr>";
+				echo "<td>Host is unavailable</td></tr>";
 				echo "<tr><th>WORK</th>";
-				echo "<td>N/A</td></tr>";
+				switch($row['work']){
+				case '0':
+					echo "<td> Host is unavailable </td>"; break;
+				case '1':
+					echo "<td> Parallel Programming </td>"; break;
+				case '2':
+					echo "<td> Hadoop </td>"; break;
+				case '3':
+					echo "<td> Parallel Programming & Haddop </td>"; break;
+				}
 		}
 		
 	}
