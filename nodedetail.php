@@ -5,6 +5,44 @@
 	<script src="js/jquery-2.1.1.min.js"></script>
 	<script src="js/script.js"></script>
 	<script src="packaged/javascript/semantic.js"></script>
+	<?php
+	$ip = $_GET['ip'];
+	echo "<script type='text/javascript'>" . PHP_EOL;
+	echo "$(document).ready(function() {". PHP_EOL;
+	echo "var url = 'getcpu.php?ip=' + " . "'" . $ip . "'" . ";". PHP_EOL;
+	echo "$('#img').show();". PHP_EOL;
+	echo "$('#node').load(url, function() {". PHP_EOL;
+	echo "$('#img').hide();". PHP_EOL;
+	echo "});". PHP_EOL;
+	echo "});". PHP_EOL;
+	echo "</script>". PHP_EOL;
+	echo "<script type='text/javascript'>" . PHP_EOL;
+	echo "$(document).ready(function() {". PHP_EOL;
+	echo "var url = 'ssh.php?ip=' + " . "'" . $ip . "'" . ";". PHP_EOL;
+	echo "$('#sshimg').show();". PHP_EOL;
+	echo "$('#ssh').load(url, function() {". PHP_EOL;
+	echo "$('#sshimg').hide();". PHP_EOL;
+	echo "});". PHP_EOL;
+	echo "});". PHP_EOL;
+	echo "</script>". PHP_EOL;
+	?>
+	<script type='text/javascript'>
+	$(document).ready(function() {
+		$('#frameNode').hide();
+		$('#ui segment').hide();
+		$('#frame').hide();
+	});
+	</script>
+	<script type='text/javascript'>
+	$(document).ready(function(){
+  		$('#ssh').click(function(){
+  			document.getElementById('frame').innerHTML = "<iframe src='<?php echo 'http://' . $ip . ':4200'; ?>' frameborder='0' width='800px' height='450px' visible='false'>";
+			$('#frameNode').show();
+			$('#ui segment').show();
+			$('#frame').show();
+  		});
+	});
+	</script>
 	<link rel="stylesheet" type="text/css" href="css/web.css">
 	<link rel="stylesheet" type="text/css" href="packaged/css/semantic.css">
 </head>
@@ -71,11 +109,11 @@
 							echo "both"; break;
 					}
 
-					//echo "<div class='frameNode'>";
-					//echo "<div class='ui segment' style='padding:5px'>";
-					//echo "<div class= 'frame' style='float:center'>";
-					//echo "<iframe src='http://www.google.com' frameborder='0' width='800px' height='450px'>";
-					//echo "</iframe></div></div></div>";
+					echo "<div id='frameNode' class='frameNode' visible='false'>";
+					echo "<div id='ui segment' class='ui segment' style='padding:5px'>";
+					echo "<div id='frame' class= 'frame' style='float:center' visible='false'>";
+					echo "<iframe src='' frameborder='0' width='800px' height='450px' visible='false'>";
+					echo "</iframe></div></div></div>";
 					?>
 				</div>
 			</div>
