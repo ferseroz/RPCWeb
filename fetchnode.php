@@ -10,7 +10,7 @@ if(!file_exists("logs/Login_" . date("Ymd") . ".txt")){
 	$handle = fopen($flog, 'w');
 }
 
-for($i = 5 ; $i < 6 ; $i++) {
+for($i = 2 ; $i < 10 ; $i++) {
 	$host = "192.168.1." . $i;
 	$output = array();
 	$result = null;
