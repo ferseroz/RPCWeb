@@ -19,3 +19,5 @@ upload/mapred-site.xml
 
 upload/core-site.xml
 config.php
+
+fetchnode.php

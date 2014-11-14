@@ -64,7 +64,7 @@ if($sftp->put("/etc/network/interfaces", "upload/System/interfaces", NET_SFTP_LO
 		exit('Login Failed');
 	}
 
-	$ssh->setTimeout(1);
+	//$ssh->setTimeout(1);
 	$ssh->exec("sudo ifdown eth0; sudo ifup eth0");
 
 	if(!file_exists("logs/rpi_" . date("Ymd") . ".txt")){
