@@ -1,0 +1,59 @@
+IP: ::1 - November 15, 2014, 2:24 am
+Shutdown RaspberryPI(Halt)
+Node: hadoop1-VirtualBox IP: 192.168.1.3
+-------------------------
+IP: ::1 - November 15, 2014, 2:24 am
+Shutdown RaspberryPI(Halt)
+Node: hdnode1 IP: 192.168.1.5
+-------------------------
+IP: ::1 - November 15, 2014, 2:48 pm
+Shutdown RaspberryPI(Halt)
+Node: PI2-SIT IP: 192.168.1.2
+-------------------------
+IP: ::1 - November 15, 2014, 2:49 pm
+Shutdown RaspberryPI(Halt)
+Node: PI2-SIT IP: 192.168.1.2
+-------------------------
+IP: ::1 - November 15, 2014, 2:49 pm
+Shutdown RaspberryPI(Halt)
+Node: PI2-SIT IP: 192.168.1.2
+-------------------------
+IP: ::1 - November 15, 2014, 2:50 pm
+Shutdown RaspberryPI(Halt)
+Node: PI2-SIT IP: 192.168.1.2
+-------------------------
+IP: ::1 - November 15, 2014, 2:50 pm
+Shutdown RaspberryPI(Halt)
+Node: PI2-SIT IP: 192.168.1.2
+-------------------------
+IP: ::1 - November 15, 2014, 2:51 pm
+Shutdown RaspberryPI(Halt)
+Node: PI2-SIT IP: 192.168.1.2
+-------------------------
+IP: ::1 - November 15, 2014, 2:53 pm
+Select * FROM node WHERE ip='192.168.1.2'Configure Node: 
+Old IP:
+New IP:192.168.1.5
+Subnet Mask:255.255.255.0
+Gateway:192.168.1.1
+Network:192.168.1.0
+Broadcast:192.168.1.255
+-------------------------
+IP: ::1 - November 15, 2014, 3:01 pm
+Select * FROM node WHERE ip='192.168.1.5'Configure Node: 
+Old IP:
+New IP:192.168.1.2
+Subnet Mask:255.255.255.0
+Gateway:192.168.1.1
+Network:192.168.1.0
+Broadcast:192.168.1.255
+-------------------------
+IP: ::1 - November 15, 2014, 3:09 pm
+Select * FROM node WHERE ip='192.168.1.2'Configure Node: 
+Old IP:
+New IP:192.168.1.7
+Subnet Mask:255.255.255.0
+Gateway:192.168.1.1
+Network:192.168.1.0
+Broadcast:192.168.1.255
+-------------------------
