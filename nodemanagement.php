@@ -2,7 +2,6 @@
 include('config.php');
 include('getlist.php');
 include('Net/SFTP.php');
-include('Net/SSH.php');
 
 $nodenumber = $_POST['numberHead'];
 $head = array();
@@ -37,21 +36,23 @@ if($nodenumber >= 1){
 }
 
 function configHadoop($id, $slaveid){
-	//include('getlist.php');
+	include('getlist.php');
 	
 	$ip = $nodeip[$id-1];
 	$hostname = $nodename[$id-1];
 	
 	$sftp = new Net_SFTP($ip);
-	if (!$sftp->login($hduser, $hdpass)) {
+	if (!$sftp->login($SSH_USERNAME, $SSH_PASSWORD)) {
     	exit('Login Failed');
 	}
+	echo "SFTP $ip" . PHP_EOL;
 
 	for($i = 0 ; $i < sizeof($slaveid) ; $i++) {
 			$sftpslaves[$i] = new Net_SFTP($nodeip[$slaveid[$i]-1]);
-			if (!$sftpslaves[$i]->login($hduser, $hdpass)) {
+			if (!$sftpslaves[$i]->login($SSH_USERNAME, $SSH_PASSWORD)) {
 	    	exit('Login Failed');
 		}
+		echo "SFTP " . $nodeip[$slaveid[$i]-1] . PHP_EOL;
 	}
 
 	$file = fopen("upload/System/core-site.xml", "w") or die("Unable to create file");
@@ -154,58 +155,27 @@ function configHadoop($id, $slaveid){
 
 	echo $sftp->put("/usr/local/hadoop/conf/slaves", "upload/System/slaves", NET_SFTP_LOCAL_FILE);
 	
-	$file = fopen("upload/System/hosts", "w") or die("Unable to create file");
-	/* For VMWare Ubuntu 14.04 */
-	//$content = "127.0.0.1\tlocalhost\n";
-	//fwrite($file, $content);
-	//$content = "127.0.1.1\thapdoop1-VirtualBox\n\n";
-	//fwrite($file, $content);
-	$content = "127.0.0.1\tlocalhost\n";
+
+	$file = fopen("upload/System/machinefile", "w") or die("Unable to create file");
+	$content = $hostname . PHP_EOL;
 	fwrite($file, $content);
-	$content = "::1\tip6-localhost ip6-loopback\n";
-	fwrite($file, $content);
-	$content = "fe00::0\tip6-localnet\n";
-	fwrite($file, $content);
-	$content = "ff00::0\tip6-mcastprefix\n";
-	fwrite($file, $content);
-	$content = "ff02::1\tip6-allnodes\n";
-	fwrite($file, $content);
-	$content = "ff02::2\tip6-allrouters\n\n";
-	fwrite($file, $content);
-	$content = $nodeip[$id-1] . "\t" . $nodename[$id-1] . "\n";
-	fwrite($file, $content);
-	for($i = 0 ; $i < sizeof($slaveid) ; $i++){
-		$n = 2 + $i;
-		$content = $nodeip[$slaveid[$i]-1] . "\t" . $nodename[$slaveid[$i]-1] . "\n";
+	for($i = 0 ; $i < sizeof($slaveid) ; $i++) {
+		$content = $nodename[$slaveid[$i]-1] . PHP_EOL;
 		fwrite($file, $content);
 	}
 	fclose($file);
 
-	echo $sftp->put("/etc/hosts", "upload/System/hosts", NET_SFTP_LOCAL_FILE);
+	echo $sftp->put("/home/student/machinefile", "upload/System/machinefile", NET_SFTP_LOCAL_FILE);
+
 	for($i = 0 ; $i < sizeof($sftpslaves) ; $i++) {
-			echo $sftpslaves[$i]->put("/etc/hosts", "upload/System/hosts", NET_SFTP_LOCAL_FILE);
+			echo $sftpslaves[$i]->put("/home/student/machinefile", "upload/System/machinefile", NET_SFTP_LOCAL_FILE);
 	}
 
 	//"java edu.rit.pj2.tracker.Tracker tracker=$ip"
-	/*
-	$ssh = new Net_SSH2($nodeip[$slaveid[$i]-1]);
-	if (!$ssh->login($SSH_USERNAME, $SSH_PASSWORD)) {
-		exit('Login Failed');
-	}
-	echo $ssh->exec("java edu.rit.pj2.tracker.Tracker tracker=$ip");
+	
 
-	for($i = 0 ; $i < sizeof($slaveid) ; $i++) {
-			// "java edu.rit.pj2.tracker.Launcher tracker=$nodeip[$slaveid[$i]-1]"
-		$ssh = new Net_SSH2($nodeip[$slaveid[$i]-1]);
-		if (!$ssh->login($SSH_USERNAME, $SSH_PASSWORD)) {
-			exit('Login Failed');
-		}
-		echo $ssh->exec("java edu.rit.pj2.tracker.Launcher tracker=$nodeip[$slaveid[$i]-1]");
-	}
 
 	
-	*/
-
-	header("Location: configuration.php");
+	//header("Location: fetchnode.php");
 }
 ?>

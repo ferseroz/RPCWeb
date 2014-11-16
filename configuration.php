@@ -75,7 +75,7 @@ if(!check() || $_SESSION['class'] != 1){
 						<select name="numberHead" form="nodeForm">
 							<option value="0">-How many head-</option>
 
-							<?
+							<?php
 							for($i = 1 ; $i <= sizeof($nodename) ; $i++){
 								echo "<option value='" . $i . "'>" . $i . "</option>";
 							}
@@ -124,7 +124,7 @@ if(!check() || $_SESSION['class'] != 1){
 					<div class="ui segment ipConfig" style="margin-left:25px; margin-top: 10px; margin-right: 1000px; margin-bottom:5px">
 						<form action="ipconfigure.php" id="ipForm" style="" method="POST">
 							Select node:
-							<select name="node" form="ipForm">
+							<select name="node" id="node" form="ipForm">
 								<?php
 								for($i = 0 ; $i < sizeof($nodeip) ; $i++){
 									echo "<option value='" . $nodeip[$i] . "'>" . $nodename[$i] . "</option>";
@@ -153,8 +153,8 @@ if(!check() || $_SESSION['class'] != 1){
 							<tr>
 								<td>Headnode Name</td>
 								<td>Cluster No.</td>
-								<td>Run</td>
-								<td>Stop</td>
+								<td>Hadoop</td>
+								<td>PJ2</td>
 							</tr>
 							<?php
 							$query = "SELECT * FROM node WHERE role='1'";
@@ -163,8 +163,8 @@ if(!check() || $_SESSION['class'] != 1){
 								echo "<tr>";
 								echo "<td>" . $row['nodename'] . "</td>";
 								echo "<td>" . $row['cluster'] . "</td>";
-								echo "<td>N/A</td>";
-								echo "<td>N/A</td>";
+								echo "<td>" . ($row['work'] < 2 ? "<a href='starthd.php?ip=" . $row['ip'] . "'>Start</a>":"<a href='stophd.php?ip=" . $row['ip'] . "'>Stop</a>") . "</td>";
+								echo "<td>" . ($row['work'] == 0 || $row['work'] == 2 ? "<a href='startjp.php?ip=" . $row['ip'] . "'>Start</a>":"<a href='stoppj.php?ip=" . $row['ip'] . "'>Stop</a>") . "</td>";
 								echo "</tr>";
 							}
 							?>
@@ -224,19 +224,6 @@ if(!check() || $_SESSION['class'] != 1){
 					</div>
 				</div>
 				<br>
-				
-				<li><input type="radio" name="paneSelector" value="5"> Resource Management</li>
-				<!-- Resource manage pane -->
-				<div class="resourceManagement Pane">
-					<div class="ui segment resourceManagement"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
-						<table class="ui table segment">
-							<tr>
-								<td>UserID</td>
-							</tr>
-						</table>
-					</div>
-				</div>
-				<br>
 
 				<li><input type="radio" name="paneSelector" value="6"> Logs</li>
 				<!-- Log pane -->
@@ -273,11 +260,37 @@ if(!check() || $_SESSION['class'] != 1){
 				<div class="nodeSetup Pane">
 					<div class="ui segment nodeSetup"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
 						<table class="ui table segment">
-							<tr>
-								<td>Node Name</td>
-								<td>Restore</td>
-								<td>Setup</td>
-							</tr>
+						<select onChange="window.location.href=this.value">
+						<option>Select a Node</option>
+							<?php
+										for($i = 0 ; $i < sizeof($nodeip) ; $i++){
+											echo "<option value='installer.php?ip=" . $nodeip[$i] . "'>" . $nodename[$i] . "</option>";
+										}
+							?>
+							</select>
+						</table>
+					</div>
+				</div>
+				<br>
+
+			<li><input type="radio" name="paneSelector" value="8">Set Node's Name</li>
+				<!-- node setup pane -->
+				<div class="SetHost Pane">
+					<div class="ui segment SetHost"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
+						<table class="ui table segment">
+						<form action="chname.php" id="chname" style="" method="POST">
+						<select id='nodename' name='nodename'>
+						<option>Select a Node</option>
+							<?php
+								for($i = 0 ; $i < sizeof($nodeip) ; $i++){
+									echo "<option value='" . $nodeip[$i] . "'>" . $nodename[$i] . "</option>";
+								}
+							?>
+							</select>
+							<br><br>
+							New Name: <input style="width:100%" type="text" name="newname"><br><br>
+								<input type="submit" value="Submit" id="chsub" name="chsub">
+						</form>
 						</table>
 					</div>
 				</div>

@@ -6,16 +6,28 @@ $ip = $_GET['ip'];
 
 
 $ssh = new Net_SSH2($ip);
-if (!$ssh->login($SSH_USERNAME, $SSH_PASSWORD)) {
+if (!$ssh->login($hduser, $hdpass)) {
 	exit('Login Failed');
 }
-
+$ssh->setTimeout(60);
+echo $ssh->exec("/usr/local/hadoop/bin/hadoop namenode -format");
 echo $ssh->exec("/usr/local/hadoop/bin/start-all.sh");
 
 $query = "Select * FROM node WHERE ip='$ip' AND role='1'";
 $result = mysql_query($query);
 $row = mysql_fetch_array($result);
 $cluster = $row['cluster'];
+
+$uq = "SELECT * FROM node WHERE cluster='$cluster'";
+$rs = mysql_query($uq);
+while($rw = mysql_fetch_array($rs)){
+	if($rw['work'] == 0) {
+		$uqe = "UPDATE node SET work=2 WHERE cluster='$cluster'";
+	} else {
+		$uqe = "UPDATE node SET work=3 WHERE cluster='$cluster'";
+	}
+	$re = mysql_query($uqe);
+}
 
 
 if(!file_exists("logs/rpi_" . date("Ymd") . ".txt")){
@@ -59,5 +71,5 @@ if($row['work'] == 0){
 }
 
 
-header('Location: configuration.php');
+//header('Location: configuration.php');
 ?>

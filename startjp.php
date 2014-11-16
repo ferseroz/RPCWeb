@@ -4,12 +4,22 @@ include('config.php');
 
 $ip = $_GET['ip'];
 
-$ssh = new Net_SSH2($ip);
-if (!$ssh->login($hduser, $hdpass)) {
-    exit('Login Failed');
+$ssh = new Net_SSH2($nodeip[$slaveid[$i]-1]);
+if (!$ssh->login($SSH_USERNAME, $SSH_PASSWORD)) {
+	exit('Login Failed');
 }
-set_time_limit(60);
-echo $ssh->exec("/usr/local/hadoop/bin/stop-all.sh");
+echo $ssh->exec("java pj2 edu.rit.pj2.tracker.Tracker tracker=$ip");
+
+$query = "Select * FROM node WHERE ip='$ip' AND role='0'";
+$result = mysql_query($query);
+while($row = mysql_fetch_array($result)){
+	$slaveip = $row['ip'];
+	$ssh = new Net_SSH2($slaveip);
+	if (!$ssh->login($SSH_USERNAME, $SSH_PASSWORD)) {
+		exit('Login Failed');
+	}
+	echo $ssh->exec("java pj2 edu.rit.pj2.tracker.Launcher tracker=$slaveip");
+}
 
 $query = "Select * FROM node WHERE ip='$ip' AND role='1'";
 $result = mysql_query($query);
@@ -18,11 +28,11 @@ $cluster = $row['cluster'];
 
 $uq = "SELECT * FROM node WHERE cluster='$cluster'";
 $rs = mysql_query($uq);
-while($rw = mysql_fetch_array($rs)){
-	if($rw['work'] == 3) {
-		$uqe = "UPDATE node SET work=2 WHERE cluster='$cluster'";
+while($row = mysql_fetch_array($rs)){
+	if($rw['work'] == 0) {
+		$uqe = "UPDATE node SET work=1 WHERE cluster='$cluster'";
 	} else {
-		$uqe = "UPDATE node SET work=0 WHERE cluster='$cluster'";
+		$uqe = "UPDATE node SET work=3 WHERE cluster='$cluster'";
 	}
 	$re = mysql_query($uqe);
 }
@@ -59,5 +69,5 @@ while($row = mysql_fetch_array($result)){
 $log = $log . "-------------------------".PHP_EOL;
 file_put_contents("logs/rpi_" . date("Ymd") . ".txt", $log, FILE_APPEND);
 
-//header('Location: configuration.php');
+header('Location: configuration.php');
 ?>

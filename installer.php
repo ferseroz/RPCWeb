@@ -6,34 +6,31 @@ include('config.php');
 $ip = $_GET['ip'];
 
 $ssh = new Net_SSH2($ip);
-if (!$ssh->login($SSH_USERNAME, $SSH_PASSWORD)) {
+if (!$ssh->login("pi", "raspberry")) {
     exit('Login Failed');
 }
 
-$dir = 'upload/System';
-$fileName = $_FILES['file']['name'];
-$tmpName = $_FILES['file']['tmp_name'];
-$fileSize = $_FILES['file']['size'];
-$fileType = $_FILES['file']['type'];
+$dir = 'upload/System/';
+$fileName = 'script.sh';
+//$tmpName = $_FILES['file']['tmp_name'];
+//$fileSize = $_FILES['file']['size'];
+//$fileType = $_FILES['file']['type'];
 
 $path = $dir. $fileName;
 
-if(move_uploaded_file($tmpName, $path)){
-	
-	$sftp = new Net_SFTP($node[$i]);
-	if (!$sftp->login($SSH_USERNAME, $SSH_PASSWORD)) {
+	echo "in";
+	$sftp = new Net_SFTP($ip);
+	if (!$sftp->login("pi", "raspberry")) {
 		exit('Login Failed');
 	}
 		
 	$locate = "" . $fileName;
-	$sftp->put($locate, $path, NET_SFTP_LOCAL_FILE);
+	echo $sftp->put($locate, $path, NET_SFTP_LOCAL_FILE);
 
-	$query = "Select * FROM node WHERE ip='$ip'";
-	$result = mysql_query($query);
-	$row = mysql_fetch_array($result);
-}
-
-echo $ssh->exec("sudo ./script");
+	//$query = "Select * FROM node WHERE ip='$ip'";
+	//$result = mysql_query($query);
+	//$row = mysql_fetch_array($result);
+echo $ssh->exec("cd ~; sudo ./script.sh;");
 
 $query = "Select * FROM node WHERE ip='$ip'";
 $result = mysql_query($query);
@@ -66,7 +63,5 @@ $log  = "IP: ".$clientip.' - '.date("F j, Y, g:i a").PHP_EOL.
 "has been installed and configured".PHP_EOL.
 $log = $log . "-------------------------".PHP_EOL;
 file_put_contents("logs/rpi_" . date("Ymd") . ".txt", $log, FILE_APPEND);
-
-//header('Location: configuration.php');
 
 ?>
