@@ -23,5 +23,5 @@ if (!$ssh2->login($hduser, $hdpass)) {
 	exit('Login Failed');
 }
 echo $ssh2->exec("echo -e 'y\\n'|ssh-keygen -q -t rsa -N \"\" -f ~/.ssh/id_rsa");
-header('Location: fetchnode.php');
+header('Location: reboot.php?ip=' . $ip);
 ?>
