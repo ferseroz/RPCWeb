@@ -1,7 +1,6 @@
 <?php
 include('Net/SSH2.php');
 include('config.php');
-//sinclude('loggedin.php');
 
 	$query = "SELECT * FROM node";
 	$result = mysql_query($query);
@@ -17,41 +16,22 @@ include('config.php');
 		//exec("ping -n 4 -w 1000 " . $host, $output, $result);
 
 		//if($ping == 0) {
-		if(check() == true){
-			echo "<tr>";
-			echo "<td><a href='nodedetail.php?ip=". urlencode($row['ip']) . "'>" . $row['nodename'] . "</a></td>";
-			echo "<td>" . $row['ip'] . "</td>";
-			echo "<td><div><div id='" . $row['nodename'] ."' class='cpu'></div><img alt='Progress' src='images/process.gif' id='img_" . $row['nodename'] ."'visible='false' /></div></td>";
-			switch($row['work']){
-				case '0':
-				echo "<td> Non-working </td>"; break;
-				case '1':
-				echo "<td> Parallel Programming </td>"; break;
-				case '2':
-				echo "<td> Hadoop </td>"; break;
-				case '3':
-				echo "<td> Parallel Programming & Haddop </td>"; break;
-			}
-			echo "<td><div><div id='ssh_" . $row['nodename'] . "'></div><img alt='Progress' src='images/process.gif' id='sshim_" . $row['nodename'] ."'visible='false' /></div></td>";
-			echo "<td> N/A </td>";
-		} else {
-			echo "<tr>";
-			echo "<td><a href='#". urlencode($row['ip']) . "'>" . $row['nodename'] . "</a></td>";
-			echo "<td>" . $row['ip'] . "</td>";
-			echo "<td><div><div id='" . $row['nodename'] ."' class='cpu'></div><img alt='Progress' src='images/process.gif' id='img_" . $row['nodename'] ."'visible='false' /></div></td>";
-			switch($row['work']){
-				case '0':
-				echo "<td> Non-working </td>"; break;
-				case '1':
-				echo "<td> Parallel Programming </td>"; break;
-				case '2':
-				echo "<td> Hadoop </td>"; break;
-				case '3':
-				echo "<td> Parallel Programming & Haddop </td>"; break;
-			}
-			echo "<td>Please Login!</td>";
-			echo "<td> N/A </td>";
+		echo "<tr>";
+		echo "<td><a href='nodedetail.php?ip=". urlencode($row['ip']) . "'>" . $row['nodename'] . "</a></td>";
+		echo "<td>" . $row['ip'] . "</td>";
+		echo "<td><div><div id='" . $row['nodename'] ."' class='cpu'></div><img alt='Progress' src='images/process.gif' id='img_" . $row['nodename'] ."'visible='false' /></div></td>";
+		switch($row['work']){
+			case '0':
+			echo "<td> Non-working </td>"; break;
+			case '1':
+			echo "<td> Parallel Programming </td>"; break;
+			case '2':
+			echo "<td> Hadoop </td>"; break;
+			case '3':
+			echo "<td> Parallel Programming & Haddop </td>"; break;
 		}
+		echo "<td><div><div id='ssh_" . $row['nodename'] . "'></div><img alt='Progress' src='images/process.gif' id='sshim_" . $row['nodename'] ."'visible='false' /></div></td>";
+		echo "<td> N/A </td>";
 		/*} else {
 			echo "<tr>";
 			echo "<td><a href='nodedetail.php?ip=". urlencode($row['ip']) . "'>" . $row['nodename'] . "</a></td>";
