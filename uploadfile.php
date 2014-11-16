@@ -29,7 +29,7 @@ if(move_uploaded_file($tmpName, $path)){
 			exit('Login Failed');
 		}
 		
-		$locate = "/home/student/" . $fileName;
+		$locate = "Desktop/" . $fileName;
 		$sftp->put($locate, $path, NET_SFTP_LOCAL_FILE);
 	}
 
