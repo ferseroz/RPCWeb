@@ -104,20 +104,23 @@
 				<h3><ins>Upload File</ins> <i class="file outline icon"></i></h3>
 				<form action="uploadfile.php" method="POST" enctype="multipart/form-data">
 					<ul style="list-style-type:none">
-						Select a file: <input type="file" name="file" id="file">
-						<li><input type="radio" name="to" value="all"> All</li>
-						<li><input type="radio" name="to" value="spec" class = "specNode"> Specify nodes(s)</li>
-						<ul style="list-style-type:none">
-							
 							<!--Generate Selection-->
 							<?php
 							include('getlist.php');
-							for($i = 0 ; $i < sizeof($nodeip) ; $i++){
-								echo "<li><input type='checkbox' name='node[]' value='" . $nodeip[$i] . "'>" . $nodename[$i] . "</li>";
-							}
-							?>
+							if(check()){
+								echo "Select a file: <input type='file' name='file' id='file'>";
+								echo "<li><input type='radio' name='to' value='all'> All</li>";
+								echo "<li><input type='radio' name='to' value='spec' class = 'specNode'> Specify nodes(s)</li>";
+								echo "<ul style='list-style-type:none'>";
+								for($i = 0 ; $i < sizeof($nodeip) ; $i++){
+									echo "<li><input type='checkbox' name='node[]' value='" . $nodeip[$i] . "'>" . $nodename[$i] . "</li>";
+								} 
+								echo "<input type='submit' value='Upload' id='upload' name='upload'>";
+							}	else {
+									echo "You have no permission to upload! Please Login";
+								}
 
-							<input type="submit" value="Upload" id="upload" name="upload">
+							?>
 						</ul>
 					</ul>
 				</form>
