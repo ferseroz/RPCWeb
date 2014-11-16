@@ -16,15 +16,18 @@ if(!check() || $_SESSION['class'] != 1){
 	<script src="js/script.js"></script>
 	<script src="packaged/javascript/semantic.js"></script>
 	<script type="text/javascript">
-	
-	$(document).ready(function() {
-		$("#fetchNode").click(function () {
-			$("#imgProg").show();
-			$('#LoadPage').load("fetchnode.php", function() {
-				location.reload();
+
+		$(document).ready(function() {
+			$("#fetchNode").click(function () {
+				if(confirm('Are you sure to confirm the action?')) {
+					$("#imgp").show();
+					$("#imgProg").show();
+					$('#LoadPage').load("fetchnode.php", function() {
+						location.reload();
+					});
+				}
 			});
 		});
-	});
 	</script>
 	<link rel="stylesheet" type="text/css" href="css/web.css">
 	<link rel="stylesheet" type="text/css" href="packaged/css/semantic.css">
@@ -67,8 +70,8 @@ if(!check() || $_SESSION['class'] != 1){
 				<div class= "nodeConfig Pane">
 					<br>
 					<input type="submit" value="Fetch Node" id="fetchNode" name="fetchNode" style="margin-left:30px">
-					<div><div id='LoadPage' class='divPage'></div><img alt='Progress' src='images/process.gif' id='imgProg' style="display:none" /></div>
-					<form action="nodemanagement.php" id="nodeForm" style="margin-left:30px;" method="POST">
+					<div><div id='LoadPage' class='divPage'></div><div id='imgp' style="display:none"><img alt='Progress' src='images/process.gif' id='imgProg' style="display:none"><font size="3" color="red"> Fetching the RaspberryPI in Local Area Network. Please do not close your browser!</font></div></div>
+					<form action="nodemanagement.php" id="nodeForm" style="margin-left:30px;" method="POST" onsubmit="return confirm('Are you sure to confirm the action?');">
 						<!-- select how many node will be head node -->
 						<br>
 						How many head node(s)?
@@ -122,7 +125,7 @@ if(!check() || $_SESSION['class'] != 1){
 				<!-- IP config pane -->
 				<div class="ipConfig Pane">
 					<div class="ui segment ipConfig" style="margin-left:25px; margin-top: 10px; margin-right: 1000px; margin-bottom:5px">
-						<form action="ipconfigure.php" id="ipForm" style="" method="POST">
+						<form action="ipconfigure.php" id="ipForm" style="" method="POST" onsubmit="return confirm('Are you sure to confirm the action?');">
 							Select node:
 							<select name="node" id="node" form="ipForm">
 								<?php
@@ -225,7 +228,7 @@ if(!check() || $_SESSION['class'] != 1){
 				</div>
 				<br>
 
-				<li><input type="radio" name="paneSelector" value="6"> Logs</li>
+				<li><input type="radio" name="paneSelector" value="5"> Logs</li>
 				<!-- Log pane -->
 				<div class="log Pane">
 					<div class="ui segment log"  style="margin-left:25px; margin-top: 10px; margin-right: 1045px; margin-bottom:5px">
@@ -255,42 +258,45 @@ if(!check() || $_SESSION['class'] != 1){
 				</div>
 				<br>
 
-				<li><input type="radio" name="paneSelector" value="7"> Node Setup</li>
+				<li><input type="radio" name="paneSelector" value="6"> Node Setup</li>
 				<!-- node setup pane -->
 				<div class="nodeSetup Pane">
 					<div class="ui segment nodeSetup"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
 						<table class="ui table segment">
-						<select onChange="window.location.href=this.value">
-						<option>Select a Node</option>
-							<?php
-										for($i = 0 ; $i < sizeof($nodeip) ; $i++){
-											echo "<option value='installer.php?ip=" . $nodeip[$i] . "'>" . $nodename[$i] . "</option>";
-										}
-							?>
-							</select>
+						<form action='installer.php' id='insatller' method='POST' onsubmit="return confirm('Are you sure to confirm the action. It will take around 1.30 - 2.00 hrs to complete this action?');">
+							<select name='ip'>
+								<option>Select a Node</option>
+								<?php
+								for($i = 0 ; $i < sizeof($nodeip) ; $i++){
+									echo "<option value='" . $nodeip[$i] . "'>" . $nodename[$i] . "</option>";
+								}
+								?>
+							</select><br><br>
+							<input type="submit" value="Submit" id="installer" name="installer"/>
+							</form>
 						</table>
 					</div>
 				</div>
 				<br>
 
-			<li><input type="radio" name="paneSelector" value="8">Set Node's Name</li>
+				<li><input type="radio" name="paneSelector" value="7">Set Node's Name</li>
 				<!-- node setup pane -->
 				<div class="SetHost Pane">
 					<div class="ui segment SetHost"  style="margin-left:25px; margin-top: 10px; margin-right: 857px; margin-bottom:5px">
 						<table class="ui table segment">
-						<form action="chname.php" id="chname" style="" method="POST">
-						<select id='nodename' name='nodename'>
-						<option>Select a Node</option>
-							<?php
-								for($i = 0 ; $i < sizeof($nodeip) ; $i++){
-									echo "<option value='" . $nodeip[$i] . "'>" . $nodename[$i] . "</option>";
-								}
-							?>
-							</select>
-							<br><br>
-							New Name: <input style="width:100%" type="text" name="newname"><br><br>
+							<form action="chname.php" id="chname" style="" method="POST" onsubmit="return confirm('Are you sure to confirm the action?');">
+								<select id='node' name='node'>
+									<option>Select a Node</option>
+									<?php
+									for($i = 0 ; $i < sizeof($nodeip) ; $i++){
+										echo "<option value='" . $nodeip[$i] . "'>" . $nodename[$i] . "</option>";
+									}
+									?>
+								</select>
+								<br><br>
+								New Name: <input style="width:100%" type="text" name="newname"><br><br>
 								<input type="submit" value="Submit" id="chsub" name="chsub">
-						</form>
+							</form>
 						</table>
 					</div>
 				</div>

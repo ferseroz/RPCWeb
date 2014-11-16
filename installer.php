@@ -1,10 +1,14 @@
 <?php
+
+
+/*
 include('Net/SSH2.php');
 include('Net/SFTP.php');
 include('config.php');
 
+$ip = $_POST['node'];
 $ip = $_GET['ip'];
-
+$ip = $_POST['ip'];
 $ssh = new Net_SSH2($ip);
 if (!$ssh->login("pi", "raspberry")) {
     exit('Login Failed');
@@ -62,6 +66,6 @@ $log  = "IP: ".$clientip.' - '.date("F j, Y, g:i a").PHP_EOL.
 "Node: ".$row['nodename']. " IP: ".$row['ip'].PHP_EOL;
 "has been installed and configured".PHP_EOL.
 $log = $log . "-------------------------".PHP_EOL;
-file_put_contents("logs/rpi_" . date("Ymd") . ".txt", $log, FILE_APPEND);
+file_put_contents("logs/rpi_" . date("Ymd") . ".txt", $log, FILE_APPEND);*/
 
 ?>

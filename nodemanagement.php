@@ -23,7 +23,7 @@ if($nodenumber >= 1){
 					array_push($slave, $slaveid);
 					$query_slave = "UPDATE node SET cluster='$id', role='0' WHERE ip='$slaveip'";
 					if(mysql_query($query_slave)) {
-						echo "Slave: " . $slave[sizeof($slave)-1] . " has been updated<br>";
+						echo "Slave: " . $slave[sizeof($slave)-1] . " $slaveip has been updated<br>";
 					}
 				}
 			}
@@ -48,11 +48,12 @@ function configHadoop($id, $slaveid){
 	echo "SFTP $ip" . PHP_EOL;
 
 	for($i = 0 ; $i < sizeof($slaveid) ; $i++) {
+		echo "SFTP " . $nodeip[$slaveid[$i]-1] . PHP_EOL;
 			$sftpslaves[$i] = new Net_SFTP($nodeip[$slaveid[$i]-1]);
 			if (!$sftpslaves[$i]->login($SSH_USERNAME, $SSH_PASSWORD)) {
 	    	exit('Login Failed');
 		}
-		echo "SFTP " . $nodeip[$slaveid[$i]-1] . PHP_EOL;
+		//echo "SFTP " . $nodeip[$slaveid[$i]-1] . PHP_EOL;
 	}
 
 	$file = fopen("upload/System/core-site.xml", "w") or die("Unable to create file");
