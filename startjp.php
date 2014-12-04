@@ -4,21 +4,23 @@ include('config.php');
 
 $ip = $_GET['ip'];
 
-$ssh = new Net_SSH2($nodeip[$slaveid[$i]-1]);
-if (!$ssh->login($SSH_USERNAME, $SSH_PASSWORD)) {
+$ssh = new Net_SSH2($ip);
+if (!$ssh->login($hduser, $hdpass)) {
 	exit('Login Failed');
 }
 echo $ssh->exec("java pj2 edu.rit.pj2.tracker.Tracker tracker=$ip");
 
 $query = "Select * FROM node WHERE ip='$ip' AND role='0'";
 $result = mysql_query($query);
-while($row = mysql_fetch_array($result)){
-	$slaveip = $row['ip'];
-	$ssh = new Net_SSH2($slaveip);
-	if (!$ssh->login($SSH_USERNAME, $SSH_PASSWORD)) {
-		exit('Login Failed');
+if($result != null) {
+	while($row = mysql_fetch_array($result)){
+		$slaveip = $row['ip'];
+		$ssh = new Net_SSH2($slaveip);
+		if (!$ssh->login($hduser, $hdpass)) {
+			exit('Login Failed');
+		}
+		echo $ssh->exec("java pj2 edu.rit.pj2.tracker.Launcher tracker=$ip");
 	}
-	echo $ssh->exec("java pj2 edu.rit.pj2.tracker.Launcher tracker=$slaveip");
 }
 
 $query = "Select * FROM node WHERE ip='$ip' AND role='1'";

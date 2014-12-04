@@ -33,8 +33,10 @@ $ping = null;
 			case '3':
 			echo "<td> Parallel Programming & Haddop </td></tr>"; break;
 		}
-		echo "<tr><th>SSH</th>";
-		echo "<td><div><div id='ssh'></div><img alt='Progress' src='images/process.gif' id='sshimg'visible='false' /></div></td></tr>";
+		echo "<tr><th>Cluster No.</th>";
+		echo "<td>" . $row['cluster'] . "</td></tr>";
+		echo "<tr><th>Role</th>";
+		echo "<td>" . ($row['role'] == 0 ? "Slave" : "Head") . "</td></tr>";
 		/*
 	}
 } else {

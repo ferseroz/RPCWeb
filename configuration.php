@@ -69,6 +69,7 @@ if(!check() || $_SESSION['class'] != 1){
 				<!-- Node config pane -->
 				<div class= "nodeConfig Pane">
 					<br>
+					
 					<input type="submit" value="Fetch Node" id="fetchNode" name="fetchNode" style="margin-left:30px">
 					<div><div id='LoadPage' class='divPage'></div><div id='imgp' style="display:none"><img alt='Progress' src='images/process.gif' id='imgProg' style="display:none"><font size="3" color="red"> Fetching the RaspberryPI in Local Area Network. Please do not close your browser!</font></div></div>
 					<form action="nodemanagement.php" id="nodeForm" style="margin-left:30px;" method="POST" onsubmit="return confirm('Are you sure to confirm the action?');">

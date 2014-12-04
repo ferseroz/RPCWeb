@@ -1,7 +1,4 @@
 <?php
-
-
-/*
 include('Net/SSH2.php');
 include('Net/SFTP.php');
 include('config.php');
@@ -66,6 +63,8 @@ $log  = "IP: ".$clientip.' - '.date("F j, Y, g:i a").PHP_EOL.
 "Node: ".$row['nodename']. " IP: ".$row['ip'].PHP_EOL;
 "has been installed and configured".PHP_EOL.
 $log = $log . "-------------------------".PHP_EOL;
-file_put_contents("logs/rpi_" . date("Ymd") . ".txt", $log, FILE_APPEND);*/
+file_put_contents("logs/rpi_" . date("Ymd") . ".txt", $log, FILE_APPEND);
+
+header('Location: configuration.php');
 
 ?>

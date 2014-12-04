@@ -59,5 +59,5 @@ while($row = mysql_fetch_array($result)){
 $log = $log . "-------------------------".PHP_EOL;
 file_put_contents("logs/rpi_" . date("Ymd") . ".txt", $log, FILE_APPEND);
 
-//header('Location: configuration.php');
+header('Location: configuration.php');
 ?>

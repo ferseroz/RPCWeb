@@ -177,6 +177,6 @@ function configHadoop($id, $slaveid){
 
 
 	
-	//header("Location: fetchnode.php");
+	header("Location: configuration.php");
 }
 ?>

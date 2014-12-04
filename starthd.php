@@ -71,5 +71,5 @@ if($row['work'] == 0){
 }
 
 
-//header('Location: configuration.php');
+header('Location: configuration.php');
 ?>

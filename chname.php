@@ -3,7 +3,7 @@ include('config.php');
 include('Net/SSH2.php');
 include('Net/SFTP.php');
 
-$ip = $_POST['nodename'];
+$ip = $_POST['node'];
 $newName = $_POST['newname'];
 
 $file = fopen("upload/System/hostname", "w") or die("Unable to create file");

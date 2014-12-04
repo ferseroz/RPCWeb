@@ -1,7 +1,7 @@
 <?php
 include('config.php');
 
-$query = "SELECT * FROM node ORDER BY ip";
+$query = "SELECT * FROM node ORDER BY nodename";
 $result = mysql_query($query) or die(mysql_error());
 $nodeip = array();
 $nodename = array();

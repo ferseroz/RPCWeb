@@ -3,7 +3,7 @@ include('Net/SSH2.php');
 include('config.php');
 //sinclude('loggedin.php');
 
-	$query = "SELECT * FROM node";
+	$query = "SELECT * FROM node order by nodename";
 	$result = mysql_query($query);
 	
 	while($row = mysql_fetch_array($result)) 
@@ -33,7 +33,6 @@ include('config.php');
 				echo "<td> Parallel Programming & Haddop </td>"; break;
 			}
 			echo "<td><div><div id='ssh_" . $row['nodename'] . "'></div><img alt='Progress' src='images/process.gif' id='sshim_" . $row['nodename'] ."'visible='false' /></div></td>";
-			echo "<td> N/A </td>";
 		} else {
 			echo "<tr>";
 			echo "<td><a href='#". urlencode($row['ip']) . "'>" . $row['nodename'] . "</a></td>";
@@ -50,7 +49,6 @@ include('config.php');
 				echo "<td> Parallel Programming & Haddop </td>"; break;
 			}
 			echo "<td>Please Login!</td>";
-			echo "<td> N/A </td>";
 		}
 		/*} else {
 			echo "<tr>";
