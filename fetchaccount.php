@@ -10,7 +10,7 @@ function pendingAccount(){
 			echo "<td>" . $row['userid'] . "</td>";
 			echo "<td>" . $row['username'] . "</td>";
 			echo "<td>" . $row['password'] . "</td>";
-			echo "<td><a href='verify.php?userid=" . $row['userid'] . "'>Confirm</a></td>";
+			echo "<td><a href='verify.php?userid=" . $row['userid'] . "'><input type='button' value='Confirm'/></a> <a href='deleteaccount.php?userid=" . $row['userid'] . "'><input type='button' value='Deny'/></a></td>";
 			echo "</tr>";
 	}
 }
@@ -24,6 +24,8 @@ function activatedAccount(){
 			echo "<td>" . $row['userid'] . "</td>";
 			echo "<td>" . $row['username'] . "</td>";
 			echo "<td>" . $row['password'] . "</td>";
+			echo "<td>" . ($row['class'] == 0 ? "Student" : "Administrator") . "</td>";
+			echo "<td><a href='deleteaccount.php?userid=" . $row['userid'] . "'><input type='button' value='Delete'/></a> <a href='changeprivilege.php?userid=" . $row['userid'] . "'><input type='button' value='Change Class'/></a></td>";
 			echo "</tr>";
 	}
 }

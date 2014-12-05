@@ -222,6 +222,8 @@ if(!check() || $_SESSION['class'] != 1){
 								<td>UserID</td>
 								<td>Username</td>
 								<td>Password</td>
+								<td>Class</td>
+								<td>Modification</td>
 							</tr>
 							<?php activatedAccount();?>
 						</table>
